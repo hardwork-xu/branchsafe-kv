@@ -1,0 +1,65 @@
+{
+  "verified_at": "2026-09-26T17:11:47.253044+00:00",
+  "git_revision": "3f09b7366123d05b3108c7afddbe09c169fe8277",
+  "document_manifest": {
+    "docs/zh/ARCHITECTURE.md": "24d0febd3a403b984ff0bd5315567b64340975e4e9a8c0721cc358e9bfb65e48",
+    "docs/zh/EXPERIMENTS.md": "f717fa56194630d87c49dfc211250cf51b4c40e48ac203b56383ac1a330f138a",
+    "docs/zh/RESUME.md": "c067c83dab0829279ef3ada70ffd475422cae742c0d33eb7179b46aa9e46d412",
+    "docs/zh/RELEASE.md": "c37f4dcec9035b40909869d745277198956526e5b9f75918072a2dee21b25b59",
+    "docs/zh/RESEARCH.md": "8026b3173a4439582c023f56a67f2be50f00995dbcc2791eb4f540138de9a791",
+    "docs/zh/PLAN.md": "671e5d4e468b6a3beae8b7d7a328df04f3f0637c112af2052815a112497d68da",
+    "docs/zh/WALKTHROUGH.md": "110363c846ee36248bc0b866a32d53a2e708acfc593be2002e341ea0fa1404dc",
+    "docs/zh/DEVELOPMENT.md": "9e3be9520e6a7d7082e2ff23c1147310e3f1b867ea812b339534c64c49cfbda3",
+    "docs/en/ARCHITECTURE.md": "b04e0e65e11d3887116dde6b106482fb73cd80c004d9d474e8ddf213b35196dd",
+    "docs/en/EXPERIMENTS.md": "fa11f118499aea50cbd00c0a35393fe5ffae2b27f46428a4c822c76df31c095b",
+    "docs/en/RESUME.md": "794b1de7975aabc5a7e365c79a66d13a26009e3a6c263463251ca7065f4efbca",
+    "docs/en/RELEASE.md": "118f782640fa05cdb6a0d29debe814be34541dd9e8a14a0fe1fccf258a22fa1e",
+    "docs/en/RESEARCH.md": "87e6d0be363f99a661b2f3f03439b75319ecf485c02f40eb6c95b2c2fb5bec81",
+    "docs/en/PLAN.md": "463452ec553ae88bf54be981ee2d52cc03f973b866bf32b725ceabbfd72f8f51",
+    "docs/en/WALKTHROUGH.md": "370bbe4447ba3bb491a2cc1159b91b1b7c24da0df9c6b5805750fb894ecea1e7",
+    "docs/en/DEVELOPMENT.md": "4f4a5fdbdd9b7f5628d7fa5fac39bab561f064a1c500477df7ff0bfd37023e6d",
+    "SECURITY_zh.md": "aaef204944390098b3432c61ce629ab83ebd48c6dc7f5c9b4e7a9a20b5a6d91a",
+    "NOTICE_zh.md": "666334a7691076630193e75446625d999dd871e356fc555f4f805e7e39a9be65",
+    "README.md": "6859fcdcbf79855647090acaba981e20ff685e2430004030136ad088c3614f7e",
+    "CONTRIBUTING.md": "3cd110aebf54f520422ce02519f4a2907a5d1557373f259a523e2c774807420b",
+    "README_zh.md": "d70ae1aa88b4fe48c173c5a2204e13fe3c706a1fca12c7cdef9051f2c158b6c9",
+    "AGENTS.md": "3d379ed1e0679e459a05c0136c1aaad2eca78a4b1bd8063a4d60556584e794a0",
+    "CONTRIBUTING_zh.md": "8f1f41b8151f9c1326857cd080990e732d7ba77b7d879d6d2fdc9f1933b4cc29",
+    "NOTICE.md": "f12befc181e1bab0ea076d1fc3926d3dc348f247580ef526bb61925250873405",
+    "SECURITY.md": "d33293c3aee26d6d44c5139aa1056fd86f8734ce72b78da9a3453b0b72bb1619",
+    "CITATION.cff": "11ad383e32f45ffe5d8ada567a23acaf1bbd5bad63960f04b093f721940991db"
+  },
+  "checks": [
+    {
+      "name": "release_docs",
+      "command": [
+        ".venv/bin/python",
+        "scripts/check_docs.py"
+      ],
+      "exit_code": 0,
+      "status": "passed",
+      "evidence": "results/acceptance/final_release_docs.log"
+    },
+    {
+      "name": "public_scan",
+      "command": [
+        ".venv/bin/python",
+        "scripts/check_repo.py"
+      ],
+      "exit_code": 0,
+      "status": "passed",
+      "evidence": "results/acceptance/final_public_scan.log"
+    },
+    {
+      "name": "git_diff",
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exit_code": 0,
+      "status": "passed",
+      "evidence": "results/acceptance/final_git_diff.log"
+    }
+  ]
+}

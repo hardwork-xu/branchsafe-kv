@@ -105,7 +105,8 @@
       "evidence": "results/acceptance/wheel_demo.log"
     }
   ],
-  "artifacts": [
+  "package_verified_at": "2026-09-26T17:07:17.997948+00:00",
+  "historical_build_artifacts": [
     {
       "path": "dist/branchsafe_kv-0.1.0-py3-none-any.whl",
       "sha256": "d37681d92875a6f277b79f0bbe6ad138594539415804345710191a7d94551d31",
@@ -119,5 +120,5 @@
       "entries": 82
     }
   ],
-  "package_verified_at": "2026-09-26T17:07:17.997948+00:00"
+  "historical_build_note": "These hashes record the earlier wheel installation check. Final distribution hashes are in dist/SHA256SUMS and the delivery manifest; documentation changed after this build."
 }

@@ -2,7 +2,7 @@
 
 [简体中文](../zh/RELEASE.md)
 
-I am preparing BranchSafe KV as a small, inspectable systems project. This document is a release draft. At preparation time, no public repository, package-registry release, hosted service, or deployed container has been created. The intended repository name is `branchsafe-kv`; relative links remain usable before publication.
+I maintain BranchSafe KV as a small, inspectable systems project. The public [repository](https://github.com/hardwork-xu/branchsafe-kv) has been created and the reviewed main branch pushed. Anonymous HTTP access and README byte equality were checked. [GitHub Actions](https://github.com/hardwork-xu/branchsafe-kv/actions/runs/36257914534) passed for revision `3f09b7366123d05b3108c7afddbe09c169fe8277`: Python 3.11/3.12/3.13, plus actual Ubuntu container build and demo. [Machine-readable publication evidence](../../results/publication.json) records the exact scope. Package-registry publication, a release tag and public service deployment remain unexecuted.
 
 ## Release notes draft
 
@@ -14,7 +14,7 @@ The optional pinned GPT-2 experiment records 45/45 native-cache comparisons with
 
 ## Installation and demonstration
 
-The declared Python range is 3.11–3.13. The local validated path is Python 3.12 on macOS arm64, CPU, float32. A Linux GitHub Actions configuration is provided, but creating its YAML does not establish a successful remote run. CUDA, MPS execution, and Windows are not validated backends.
+The declared Python range is 3.11–3.13. The local validated path is Python 3.12 on macOS arm64, CPU, float32. Linux GitHub Actions actually passed all three Python versions, including tests, lint, formatting, typing, documentation commands and package builds. CUDA, MPS execution, and Windows are not validated backends.
 
 From a local checkout with `uv` available:
 
@@ -50,7 +50,7 @@ The first command invoking the script can download approximately 548 MB of fixed
 
 ## Container status
 
-The [Dockerfile](../../Dockerfile) uses `python:3.12.11-slim-bookworm`, installs the frozen runtime dependency set, and runs the demo as a non-root user. Docker was unavailable on the development host, so container build and execution are **not locally verified**:
+The [Dockerfile](../../Dockerfile) uses `python:3.12.11-slim-bookworm`, installs the frozen runtime dependency set, and runs the demo as a non-root user. Docker was unavailable on the development host, so container build and execution are **not locally verified**. They were separately executed successfully on the [GitHub-hosted Ubuntu runner](https://github.com/hardwork-xu/branchsafe-kv/actions/runs/36257914534):
 
 ```sh
 docker build -t branchsafe-kv:0.1.0 .
@@ -73,4 +73,4 @@ Use the [MIT license](../../LICENSE), [third-party notice](../../NOTICE.md), [co
 
 Before publishing, review the final tracked files, source/evidence correspondence, documentation links, and sensitive-data scan. Publish only the reviewed source, tests, documentation, configurations, and small result artifacts. Exclude virtual environments, downloaded weights, caches, private machine logs, and unreviewed local work.
 
-Creating a public repository, pushing commits, tagging a release, uploading wheel/source archives, and deploying a service are distinct external operations. They remain unexecuted in this preparation record. When one is actually performed, replace this status with the verified result and exact public link; do not prefill an assumed repository URL or a passing CI badge.
+Creating a public repository, pushing commits, tagging a release, uploading wheel/source archives, and deploying a service are distinct external operations. The repository and push operations are completed and verified above. No package-registry upload, release tag, hosted inference endpoint or public service deployment has been performed. The locally built wheel and source distribution are deliverables, not registry releases.

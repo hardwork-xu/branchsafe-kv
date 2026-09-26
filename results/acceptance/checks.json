@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "started_at": "2026-09-26T17:06:00.387210+00:00",
-  "git_revision": "c7931f5cf28a2a5f66ec4d954e2d355521c1fc61",
+  "started_at": "2026-09-26T17:10:37.607125+00:00",
+  "git_revision": "3f09b7366123d05b3108c7afddbe09c169fe8277",
   "source_manifest": {
     "src/branchsafe/__init__.py": "9af1c6fe6e0ea1eca4e81292e76735f363250f608e1b4314caeae313ac986c23",
     "src/branchsafe/__main__.py": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
@@ -17,7 +17,7 @@
     ".dockerignore": "88ab6782b5ddaf05b8e3c111885197e6ddfd5628a1be4a74f70219414b49d743",
     ".github/workflows/ci.yml": "9ff91242eb34136a2722f3ce0041ef4c33da24386022354f3666f3c701225a48",
     "AGENTS.md": "3d379ed1e0679e459a05c0136c1aaad2eca78a4b1bd8063a4d60556584e794a0",
-    "CITATION.cff": "17df390c3b63d3cffa6b23f9cff74de354dac0a533958221b726ca75bcf7bc48",
+    "CITATION.cff": "11ad383e32f45ffe5d8ada567a23acaf1bbd5bad63960f04b093f721940991db",
     "CONTRIBUTING.md": "3cd110aebf54f520422ce02519f4a2907a5d1557373f259a523e2c774807420b",
     "CONTRIBUTING_zh.md": "8f1f41b8151f9c1326857cd080990e732d7ba77b7d879d6d2fdc9f1933b4cc29",
     "Dockerfile": "6ebdfed4cae2bc8ea7aa0b132bdf5bce786ba76b587d54a38f08e19e2aeaf5e8",
@@ -25,16 +25,16 @@
     "Makefile": "a7d46a092108364b06286ce6f8187bbfef67db9ecba1df0817aad76b1c3d46cf",
     "NOTICE.md": "f12befc181e1bab0ea076d1fc3926d3dc348f247580ef526bb61925250873405",
     "NOTICE_zh.md": "666334a7691076630193e75446625d999dd871e356fc555f4f805e7e39a9be65",
-    "README.md": "b456d39c568d0f0fb23b0cbc372b79504c2ac4dc094a6a4491d169baa8f4efdb",
-    "README_zh.md": "9e51605a0e245aa01736094f17f3099b0f8f119833215776e773757bf59e3050",
+    "README.md": "6859fcdcbf79855647090acaba981e20ff685e2430004030136ad088c3614f7e",
+    "README_zh.md": "d70ae1aa88b4fe48c173c5a2204e13fe3c706a1fca12c7cdef9051f2c158b6c9",
     "SECURITY.md": "a2ee655b46239e142022d5452042912f92cb02044ac97c0918be737a95632589",
-    "SECURITY_zh.md": "bfc94d306dc843489bd1f79bc657c27e9a2eaee7dade67fe7b7159df698c2486",
+    "SECURITY_zh.md": "aaef204944390098b3432c61ce629ab83ebd48c6dc7f5c9b4e7a9a20b5a6d91a",
     "configs/benchmark.json": "ad865b9d7ef97807a081809ac96bea092c4b28bd8f82a5e2229840da1337d420",
     "docs/en/ARCHITECTURE.md": "b04e0e65e11d3887116dde6b106482fb73cd80c004d9d474e8ddf213b35196dd",
     "docs/en/DEVELOPMENT.md": "4f4a5fdbdd9b7f5628d7fa5fac39bab561f064a1c500477df7ff0bfd37023e6d",
     "docs/en/EXPERIMENTS.md": "fa11f118499aea50cbd00c0a35393fe5ffae2b27f46428a4c822c76df31c095b",
     "docs/en/PLAN.md": "463452ec553ae88bf54be981ee2d52cc03f973b866bf32b725ceabbfd72f8f51",
-    "docs/en/RELEASE.md": "305a0bf60ee6b07b47dbd153af920b102d93ce8fb5adb1a5c8a89beb80123820",
+    "docs/en/RELEASE.md": "118f782640fa05cdb6a0d29debe814be34541dd9e8a14a0fe1fccf258a22fa1e",
     "docs/en/RESEARCH.md": "87e6d0be363f99a661b2f3f03439b75319ecf485c02f40eb6c95b2c2fb5bec81",
     "docs/en/RESUME.md": "794b1de7975aabc5a7e365c79a66d13a26009e3a6c263463251ca7065f4efbca",
     "docs/en/WALKTHROUGH.md": "370bbe4447ba3bb491a2cc1159b91b1b7c24da0df9c6b5805750fb894ecea1e7",
@@ -42,7 +42,7 @@
     "docs/zh/DEVELOPMENT.md": "9e3be9520e6a7d7082e2ff23c1147310e3f1b867ea812b339534c64c49cfbda3",
     "docs/zh/EXPERIMENTS.md": "f717fa56194630d87c49dfc211250cf51b4c40e48ac203b56383ac1a330f138a",
     "docs/zh/PLAN.md": "671e5d4e468b6a3beae8b7d7a328df04f3f0637c112af2052815a112497d68da",
-    "docs/zh/RELEASE.md": "5fe8a76c6a11331e342ba43e0059562c2ea83f7f5344b5c0cada6b10c7f12d38",
+    "docs/zh/RELEASE.md": "1c991ba1109b2ba4aa564f2b5c8a7bec7995351abec406258ac9d39e39fd5a14",
     "docs/zh/RESEARCH.md": "8026b3173a4439582c023f56a67f2be50f00995dbcc2791eb4f540138de9a791",
     "docs/zh/RESUME.md": "c067c83dab0829279ef3ada70ffd475422cae742c0d33eb7179b46aa9e46d412",
     "docs/zh/WALKTHROUGH.md": "110363c846ee36248bc0b866a32d53a2e708acfc593be2002e341ea0fa1404dc",
@@ -67,7 +67,7 @@
         "-c",
         "from branchsafe import CacheConfig,PagedCache; p=PagedCache(CacheConfig(1,1,4)); s=p.create(); assert s.length==0; p.close()"
       ],
-      "started_at": "2026-09-26T17:06:00.409378+00:00",
+      "started_at": "2026-09-26T17:10:37.630568+00:00",
       "exit_code": 0,
       "status": "passed",
       "log": "results/acceptance/public_api.log",
@@ -82,7 +82,7 @@
         "branchsafe",
         "demo"
       ],
-      "started_at": "2026-09-26T17:06:00.490569+00:00",
+      "started_at": "2026-09-26T17:10:37.705655+00:00",
       "exit_code": 0,
       "status": "passed",
       "log": "results/acceptance/default_example.log",
@@ -95,7 +95,7 @@
         "python",
         "examples/branch.py"
       ],
-      "started_at": "2026-09-26T17:06:00.630663+00:00",
+      "started_at": "2026-09-26T17:10:37.849930+00:00",
       "exit_code": 0,
       "status": "passed",
       "log": "results/acceptance/example_file.log",
@@ -113,12 +113,12 @@
         "not integration",
         "--junitxml=work/unit.xml"
       ],
-      "started_at": "2026-09-26T17:06:00.764965+00:00",
+      "started_at": "2026-09-26T17:10:37.975145+00:00",
       "exit_code": 0,
       "status": "passed",
       "log": "results/acceptance/unit_tests.log",
-      "log_sha256": "23372209a97b34a96d4a281d83eb9ff9db1abf8beb9333516762e7c08f2942ff",
-      "summary": "148 passed, 3 deselected in 0.58s"
+      "log_sha256": "289f8278834f6e6475ac750ce224572743cc6429a28bf672f319a02b66ee6906",
+      "summary": "148 passed, 3 deselected in 0.57s"
     },
     {
       "name": "integration_tests",
@@ -131,12 +131,12 @@
         "integration",
         "--junitxml=work/integration.xml"
       ],
-      "started_at": "2026-09-26T17:06:01.629707+00:00",
+      "started_at": "2026-09-26T17:10:38.760148+00:00",
       "exit_code": 0,
       "status": "passed",
       "log": "results/acceptance/integration_tests.log",
-      "log_sha256": "7fbe04d07852aa06c765da8d60f3442e88450339e1bf61e8160198754d2fc3ac",
-      "summary": "3 passed, 148 deselected in 1.42s"
+      "log_sha256": "3f6f540952dc19a5309c08259300377ccf4ed31f5f4f0be40d73357e21a1549a",
+      "summary": "3 passed, 148 deselected in 1.36s"
     },
     {
       "name": "lint",
@@ -147,7 +147,7 @@
         "check",
         "."
       ],
-      "started_at": "2026-09-26T17:06:03.229111+00:00",
+      "started_at": "2026-09-26T17:10:40.292076+00:00",
       "exit_code": 0,
       "status": "passed",
       "log": "results/acceptance/lint.log",
@@ -164,7 +164,7 @@
         "--check",
         "."
       ],
-      "started_at": "2026-09-26T17:06:03.303145+00:00",
+      "started_at": "2026-09-26T17:10:40.362115+00:00",
       "exit_code": 0,
       "status": "passed",
       "log": "results/acceptance/format.log",
@@ -178,7 +178,7 @@
         "-m",
         "mypy"
       ],
-      "started_at": "2026-09-26T17:06:03.342716+00:00",
+      "started_at": "2026-09-26T17:10:40.402650+00:00",
       "exit_code": 0,
       "status": "passed",
       "log": "results/acceptance/types.log",
@@ -191,7 +191,7 @@
         "python",
         "scripts/analyze.py"
       ],
-      "started_at": "2026-09-26T17:06:03.781887+00:00",
+      "started_at": "2026-09-26T17:10:40.776993+00:00",
       "exit_code": 0,
       "status": "passed",
       "log": "results/acceptance/analysis.log",
@@ -205,7 +205,7 @@
         "-m",
         "build"
       ],
-      "started_at": "2026-09-26T17:06:04.656979+00:00",
+      "started_at": "2026-09-26T17:10:41.596559+00:00",
       "exit_code": 0,
       "status": "passed",
       "log": "results/acceptance/package_build.log",
@@ -218,7 +218,7 @@
         "python",
         "scripts/check_docs.py"
       ],
-      "started_at": "2026-09-26T17:06:16.560410+00:00",
+      "started_at": "2026-09-26T17:10:53.554771+00:00",
       "exit_code": 0,
       "status": "passed",
       "log": "results/acceptance/documentation_examples.log",
@@ -231,12 +231,12 @@
         "python",
         "scripts/check_repo.py"
       ],
-      "started_at": "2026-09-26T17:06:16.772275+00:00",
+      "started_at": "2026-09-26T17:10:53.768356+00:00",
       "exit_code": 0,
       "status": "passed",
       "log": "results/acceptance/documentation_privacy.log",
-      "log_sha256": "259c8481544d2379c83d3635e40b86ece73603ef19d4edbb188c34918cac1bb3",
-      "summary": "{\"status\": \"passed\", \"files_scanned\": 81, \"relative_links\": 246, \"paired_documents\": 8}"
+      "log_sha256": "7df357f8379d48295d174cb7c33ddb8896422dce941b91adaee7fb81cba12698",
+      "summary": "{\"status\": \"passed\", \"files_scanned\": 86, \"relative_links\": 248, \"paired_documents\": 8}"
     },
     {
       "name": "git_diff",
@@ -245,7 +245,7 @@
         "diff",
         "--check"
       ],
-      "started_at": "2026-09-26T17:06:18.696205+00:00",
+      "started_at": "2026-09-26T17:10:55.421450+00:00",
       "exit_code": 0,
       "status": "passed",
       "log": "results/acceptance/git_diff.log",
@@ -284,6 +284,6 @@
       "summary": "Docker executable unavailable / 未安装Docker"
     }
   ],
-  "completed_at": "2026-09-26T17:06:18.729696+00:00",
+  "completed_at": "2026-09-26T17:10:55.460698+00:00",
   "status": "passed_with_not_run"
 }

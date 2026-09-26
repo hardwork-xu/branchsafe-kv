@@ -1,5 +1,7 @@
 # BranchSafe KV
 
+[Public repository](https://github.com/hardwork-xu/branchsafe-kv) · [CI](https://github.com/hardwork-xu/branchsafe-kv/actions/runs/36257914534)
+
 **Bounded transactional KV storage for branching inference research.**
 
 [简体中文](README_zh.md) · [Research](docs/en/RESEARCH.md) · [Code walkthrough](docs/en/WALKTHROUGH.md)
@@ -43,7 +45,7 @@ Transactions preserve the original prefix and publish only an accepted appended 
 
 ## Install and quick start
 
-Supported language range: Python 3.11–3.13; the original local run used Python 3.12.2 on macOS arm64. Linux verification status is recorded in the release evidence. Use a project-local tool environment:
+Supported language range: Python 3.11–3.13; the original local run used Python 3.12.2 on macOS arm64. Linux CI passed on Python 3.11, 3.12 and 3.13; the container build/demo also passed on a GitHub-hosted Ubuntu runner. Use a project-local tool environment:
 
 ```bash
 python3 -m venv .venv-tools

@@ -2,7 +2,7 @@
 
 [简体中文](SECURITY_zh.md)
 
-I maintain version 0.1.0 as a local research library. It has no hosted service, authentication layer, tenant isolation guarantee, or published security response SLA. The repository has not yet been publicly released at the preparation date; no private vulnerability-reporting endpoint is claimed.
+I maintain version 0.1.0 as a local research library. It has no hosted service, authentication layer, tenant isolation guarantee, or published security response SLA. The source repository is public; no private vulnerability-reporting endpoint is claimed.
 
 ## Trust boundaries
 

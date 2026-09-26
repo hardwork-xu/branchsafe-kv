@@ -1,5 +1,7 @@
 # BranchSafe KV
 
+[公开仓库](https://github.com/hardwork-xu/branchsafe-kv) · [CI](https://github.com/hardwork-xu/branchsafe-kv/actions/runs/36257914534)
+
 **面向分支推理研究的有界事务式 KV 存储。**
 
 [English](README.md) · [研究说明](docs/zh/RESEARCH.md) · [代码导读](docs/zh/WALKTHROUGH.md)
@@ -43,7 +45,7 @@ flowchart LR
 
 ## 安装与快速开始
 
-语言范围为 Python 3.11–3.13；原始本机验证为 macOS arm64、Python 3.12.2。Linux 验证状态单独记录在发布证据。工具环境也保留在项目内：
+语言范围为 Python 3.11–3.13；原始本机验证为 macOS arm64、Python 3.12.2。Linux CI 已通过 Python 3.11、3.12、3.13，GitHub 托管 Ubuntu 容器构建与 demo 也已通过。工具环境也保留在项目内：
 
 ```bash
 python3 -m venv .venv-tools

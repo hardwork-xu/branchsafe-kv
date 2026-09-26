@@ -2,7 +2,7 @@
 
 [English](../en/RELEASE.md)
 
-我将 BranchSafe KV 准备为一个规模聚焦、实现可审阅的系统项目。本文是发布草稿。准备时尚未创建公开仓库、包注册平台版本、托管服务或已部署容器。预定仓库名为 `branchsafe-kv`；相对链接在公开发布之前也可使用。
+我将 BranchSafe KV 维护为一个规模聚焦、实现可审阅的系统项目。已创建[公开仓库](https://github.com/hardwork-xu/branchsafe-kv)并推送已审查的main；已检查匿名HTTP访问与README字节一致。[GitHub Actions](https://github.com/hardwork-xu/branchsafe-kv/actions/runs/36257914534)在revision `3f09b7366123d05b3108c7afddbe09c169fe8277`上通过Python 3.11/3.12/3.13检查及Ubuntu容器实际构建与demo。[机器可读发布证据](../../results/publication.json)记录精确范围。包注册平台发布、release tag和公网服务部署仍未执行。
 
 ## 发布说明草稿
 
@@ -14,7 +14,7 @@
 
 ## 安装与演示
 
-声明的 Python 范围为 3.11–3.13。本地已验证路径为 macOS arm64、Python 3.12、CPU、float32。项目提供 Linux GitHub Actions 配置，但 YAML 的存在不等于远端执行成功。CUDA、MPS 执行与 Windows 均不是已验证后端。
+声明的 Python 范围为 3.11–3.13。本地已验证路径为 macOS arm64、Python 3.12、CPU、float32。Linux GitHub Actions 已实际通过三个Python版本，包括测试、静态/格式/类型检查、文档命令和包构建。CUDA、MPS 执行与 Windows 均不是已验证后端。
 
 在已提供 `uv` 的本地仓库根目录执行：
 
@@ -50,7 +50,7 @@ uv run --frozen --group model python scripts/validate_model.py --offline --outpu
 
 ## 容器状态
 
-[Dockerfile](../../Dockerfile) 使用 `python:3.12.11-slim-bookworm`，安装锁定的运行时依赖，并以非 root 用户执行演示。开发主机没有可用 Docker，因此容器构建和运行**未在本地验证**：
+[Dockerfile](../../Dockerfile) 使用 `python:3.12.11-slim-bookworm`，安装锁定的运行时依赖，并以非 root 用户执行演示。开发主机没有可用 Docker，因此容器构建和运行**未在本地验证**；已另外在[GitHub托管Ubuntu环境](https://github.com/hardwork-xu/branchsafe-kv/actions/runs/36257914534)实际构建运行通过：
 
 ```sh
 docker build -t branchsafe-kv:0.1.0 .
@@ -77,4 +77,4 @@ docker run --rm branchsafe-kv:0.1.0
 
 发布前检查最终受版本控制的文件、源码与证据对应关系、文档链接和敏感信息扫描。仅发布经过审查的源码、测试、文档、配置和小型结果文件。排除虚拟环境、下载的权重、缓存、私人机器日志与未审查的本地工作文件。
 
-创建公开仓库、推送提交、创建 release tag、上传 wheel 或源码归档，以及部署服务，属于各自独立的外部操作。本发布准备记录中，这些操作尚未执行。真正执行后，应将状态更新为核实后的结果和精确公开链接，不预先填入假定的仓库地址或通过的 CI badge。
+创建公开仓库、推送提交、创建 release tag、上传 wheel 或源码归档，以及部署服务，属于各自独立的外部操作。仓库创建与推送已完成并在上文核实；尚未上传包注册平台、创建release tag、提供托管推理接口或部署公网服务。本机构建的wheel与源码包是交付物，不代表注册平台发布。
