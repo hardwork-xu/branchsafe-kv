@@ -1,0 +1,69 @@
+{
+  "seed": 20260927,
+  "warmup": 3,
+  "repeats": 21,
+  "geometry": {
+    "layers": 4,
+    "heads": 4,
+    "head_dim": 64,
+    "page_size": 16
+  },
+  "cases": [
+    {
+      "name": "short",
+      "prefix": 32,
+      "branches": 1,
+      "append": 16,
+      "accepted": 8,
+      "read_rounds": 1
+    },
+    {
+      "name": "medium",
+      "prefix": 256,
+      "branches": 4,
+      "append": 16,
+      "accepted": 8,
+      "read_rounds": 1
+    },
+    {
+      "name": "primary",
+      "prefix": 2048,
+      "branches": 8,
+      "append": 16,
+      "accepted": 8,
+      "read_rounds": 1
+    },
+    {
+      "name": "long",
+      "prefix": 4096,
+      "branches": 4,
+      "append": 16,
+      "accepted": 8,
+      "read_rounds": 1
+    },
+    {
+      "name": "partial_page",
+      "prefix": 2047,
+      "branches": 8,
+      "append": 16,
+      "accepted": 8,
+      "read_rounds": 1
+    },
+    {
+      "name": "no_prefix",
+      "prefix": 0,
+      "branches": 8,
+      "append": 16,
+      "accepted": 8,
+      "read_rounds": 1
+    },
+    {
+      "name": "read_heavy",
+      "prefix": 2048,
+      "branches": 8,
+      "append": 16,
+      "accepted": 8,
+      "read_rounds": 4
+    }
+  ]
+}
