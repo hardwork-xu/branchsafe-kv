@@ -70,8 +70,13 @@ def validate_config(config):
             raise ValueError("invalid accepted length / 接受长度不合法")
         estimate = (case["branches"] + 2) * (case["prefix"] + case["append"]) * 2
         estimate *= geom["layers"] * geom["heads"] * geom["head_dim"] * 4
-        if estimate > 2 * 1024**3:
-            raise ValueError("2 GiB workload payload limit / 工作负载数据上限为2 GiB")
+        total = case["prefix"] + case["append"]
+        rounded_pages = (case["branches"] + 2) * (
+            (total + geom["page_size"] - 1) // geom["page_size"] + 1
+        )
+        page_bytes = 2 * geom["layers"] * geom["heads"] * geom["head_dim"] * geom["page_size"] * 4
+        if max(estimate, rounded_pages * page_bytes) > 2 * 1024**3:
+            raise ValueError("2 GiB workload/pool payload limit / 工作负载与页池载荷上限为2 GiB")
     return config
 
 
@@ -98,12 +103,12 @@ def run_once(method, geometry, case, data, read):
         if method == "dense"
         else PagedCache(cfg, sharing=method == "shared_paged")
     )
-    parent = pool.create()
-    parent.append(*prefix)
-    preload_ns = time.perf_counter_ns() - start
-    branches = []
-    checks = []
     try:
+        parent = pool.create()
+        parent.append(*prefix)
+        preload_ns = time.perf_counter_ns() - start
+        branches = []
+        checks = []
         start = time.perf_counter_ns()
         for values in suffixes:
             child = parent.fork()
@@ -131,6 +136,7 @@ def run_once(method, geometry, case, data, read):
             "elapsed_ns": elapsed_ns,
             "preload_ns": preload_ns,
             "managed_peak_bytes": peak["peak_bytes"],
+            "allocated_bytes_at_branch_peak": peak["allocated_bytes"],
             "copied_bytes": peak["copied_bytes"],
             "released_live_bytes": live_after,
             "read_count": len(checks),
@@ -178,6 +184,42 @@ def memory_worker(config, case_index, method):
     rss = resource.getrusage(resource.RUSAGE_SELF).ru_maxrss
     result["process_peak_rss_bytes"] = int(rss if sys.platform == "darwin" else rss * 1024)
     result["scope"] = "fresh process peak; imports + inputs + preload + one read workflow"
+    return result
+
+
+def run_memory_worker(command, timeout=180):
+    """Record worker failure without discarding timing evidence. / 保留计时证据并记录子进程失败。"""
+    try:
+        proc = subprocess.run(command, capture_output=True, text=True, timeout=timeout)
+    except subprocess.TimeoutExpired:
+        return {
+            "status": "failed",
+            "exit_code": None,
+            "error": "memory worker timeout / 内存子进程超时",
+        }
+    except OSError as exc:
+        return {"status": "failed", "exit_code": None, "error": type(exc).__name__}
+    if proc.returncode:
+        return {
+            "status": "failed",
+            "exit_code": proc.returncode,
+            "error": "memory worker failed; rerun --memory-worker / 内存子进程失败，请单独复现",
+        }
+    try:
+        result = json.loads(proc.stdout)
+    except json.JSONDecodeError:
+        return {"status": "failed", "exit_code": 0, "error": "invalid worker JSON / 子进程JSON无效"}
+    if (
+        not isinstance(result, dict)
+        or result.get("status") != "passed"
+        or type(result.get("process_peak_rss_bytes")) is not int
+        or result["process_peak_rss_bytes"] <= 0
+    ):
+        return {
+            "status": "failed",
+            "exit_code": 0,
+            "error": "invalid worker schema / 子进程字段无效",
+        }
     return result
 
 
@@ -261,16 +303,12 @@ def main():
                 str(index),
                 method,
             ]
-            proc = subprocess.run(command, capture_output=True, text=True, timeout=180)
-            if proc.returncode:
-                failed = True
-                memory = {
-                    "status": "failed",
-                    "exit_code": proc.returncode,
-                    "error": "worker failed; rerun --memory-worker / 内存子进程失败，请单独复现",
-                }
-            else:
-                memory = json.loads(proc.stdout)
+            # Persist completed samples before any worker can fail or time out.
+            # 子进程失败或超时前，先保存已经完成的样本。
+            args.output.parent.mkdir(parents=True, exist_ok=True)
+            args.output.write_text(json.dumps(result, indent=2) + "\n")
+            memory = run_memory_worker(command)
+            failed = failed or memory["status"] != "passed"
             result["memory"].append({"case": case["name"], "method": method, **memory})
         args.output.parent.mkdir(parents=True, exist_ok=True)
         args.output.write_text(json.dumps(result, indent=2) + "\n")

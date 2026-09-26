@@ -1,0 +1,1498 @@
+{
+  "schema_version": 1,
+  "run_id": "0ea686b9-f3b9-4e5b-afc3-4668beed5e1b",
+  "started_at": "2026-09-26T16:48:27.675235+00:00",
+  "source": {
+    "git_revision": "8ac7d750eda6908e79e8a273c5cf7f414389578e",
+    "file_sha256": {
+      "src/branchsafe/__init__.py": "9af1c6fe6e0ea1eca4e81292e76735f363250f608e1b4314caeae313ac986c23",
+      "src/branchsafe/__main__.py": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+      "src/branchsafe/baseline.py": "b3a3f634b8accf7903f30da97b3c44e416b016d6fe5c48b2323d9f438d073287",
+      "src/branchsafe/cli.py": "59480145305247f94d56a65acef40fac6dfefb4f9c7819ab8f904d442cdf8651",
+      "src/branchsafe/core.py": "8733fd07adb07260ffdfd1a309db79fae4f35542624ed239e864cd08df2306dc",
+      "src/branchsafe/provenance.py": "04fb5edfdb00e92c9fabc5ff584887c11f8c5775c45c2b5cedbb3d560d765be8",
+      "scripts/validate_model.py": "888bc8d9d9ea594b45e6e84a065b44211d15a77d5631999cdfd1543477945bfe"
+    },
+    "source_sha256": "843828a62d930e28e07fb186810a3661f0aed65c0926105e163860f9b21d0bff"
+  },
+  "command": [
+    "python",
+    "scripts/validate_model.py",
+    "--threads",
+    "1",
+    "--steps",
+    "4",
+    "--seed",
+    "20260927",
+    "--offline"
+  ],
+  "seed": 20260927,
+  "dtype": "float32",
+  "threshold": 1e-05,
+  "model": {
+    "id": "openai-community/gpt2",
+    "revision": "607a30d783dfa663caf39e06633721c8d4cfcd7e",
+    "license": "MIT",
+    "source": "https://huggingface.co/openai-community/gpt2/tree/607a30d783dfa663caf39e06633721c8d4cfcd7e",
+    "upstream_license": "https://github.com/openai/gpt-2/blob/master/LICENSE",
+    "files": {
+      "config.json": {
+        "sha256": "0daed7749b4f02b8f76240d5444551d7b08712dab4d0adb8239c56ba823bb7b4",
+        "bytes": 665
+      },
+      "model.safetensors": {
+        "sha256": "248dfc3911869ec493c76e65bf2fcf7f615828b0254c12b473182f0f81d3a707",
+        "bytes": 548105171
+      },
+      "tokenizer.json": {
+        "sha256": "8414cab924d8b9b33013f0d221c5862f365ee9be39c5c2bfae8a5a9e970478a6",
+        "bytes": 1355256
+      },
+      "tokenizer_config.json": {
+        "sha256": "5e04eb606e3a1583530a42e36c2a6b6615c86f34fe77e44d9ddeb43ff940931f",
+        "bytes": 26
+      },
+      "vocab.json": {
+        "sha256": "196139668be63f3b5d6574427317ae82f612a97c5d1cdaf36ed2256dbf636783",
+        "bytes": 1042301
+      },
+      "merges.txt": {
+        "sha256": "1ce1664773c50f3e0cc8842619a93edc4624525b728b188a9e0be33b7726adc5",
+        "bytes": 456318
+      },
+      "generation_config.json": {
+        "sha256": "ed0b32ac72c0f5f44a719abb2d7786ea5146c871f83717b7f2018065954de02b",
+        "bytes": 124
+      }
+    },
+    "parameter_count": 124439808
+  },
+  "workload": {
+    "type": "pretrained model; original synthetic prompts / 预训练模型，原创合成提示词",
+    "prompts": [
+      "A reliable cache must preserve its prefix when",
+      "The research notebook records every measurement because",
+      "A small compiler can improve memory efficiency when"
+    ],
+    "suffixes": [
+      " two branches share the same history.",
+      " a speculative branch is rejected safely."
+    ],
+    "steps": 4
+  },
+  "comparisons": [
+    {
+      "case": "prompt-0/branch-0/suffix",
+      "prefix_tokens": 8,
+      "incoming_token_ids": [
+        734,
+        13737,
+        2648,
+        262,
+        976,
+        2106,
+        13
+      ],
+      "native_max_abs_error": 0.0,
+      "native_logits_bitwise_equal": true,
+      "full_recompute_max_abs_error": 0.0,
+      "native_vs_full_recompute_max_abs_error": 0.0,
+      "greedy_ids": {
+        "adapted": 198,
+        "native": 198,
+        "full": 198
+      },
+      "stored_kv_bitwise_equal": true,
+      "native_check": "passed",
+      "full_recompute_check": "passed",
+      "timing": {
+        "adapted_seconds": 0.04410383407957852,
+        "conversion_seconds": 0.0012023750459775329,
+        "adapted_forward_seconds": 0.04203749995213002,
+        "storage_seconds": 0.0008612499805167317,
+        "native_seconds": 0.03961816697847098,
+        "full_seconds": 0.0508613750571385
+      }
+    },
+    {
+      "case": "prompt-0/branch-0/decode-0",
+      "prefix_tokens": 15,
+      "incoming_token_ids": [
+        198
+      ],
+      "native_max_abs_error": 0.0,
+      "native_logits_bitwise_equal": true,
+      "full_recompute_max_abs_error": 0.000640869140625,
+      "native_vs_full_recompute_max_abs_error": 0.000640869140625,
+      "greedy_ids": {
+        "adapted": 198,
+        "native": 198,
+        "full": 198
+      },
+      "stored_kv_bitwise_equal": true,
+      "native_check": "passed",
+      "full_recompute_check": "failed",
+      "timing": {
+        "adapted_seconds": 0.03669941704720259,
+        "conversion_seconds": 0.0007298750570043921,
+        "adapted_forward_seconds": 0.035375916049815714,
+        "storage_seconds": 0.000592833966948092,
+        "native_seconds": 0.031659666914492846,
+        "full_seconds": 0.051667666994035244
+      }
+    },
+    {
+      "case": "prompt-0/branch-0/decode-1",
+      "prefix_tokens": 16,
+      "incoming_token_ids": [
+        198
+      ],
+      "native_max_abs_error": 0.0,
+      "native_logits_bitwise_equal": true,
+      "full_recompute_max_abs_error": 0.0001678466796875,
+      "native_vs_full_recompute_max_abs_error": 0.0001678466796875,
+      "greedy_ids": {
+        "adapted": 464,
+        "native": 464,
+        "full": 464
+      },
+      "stored_kv_bitwise_equal": true,
+      "native_check": "passed",
+      "full_recompute_check": "failed",
+      "timing": {
+        "adapted_seconds": 0.041123666102066636,
+        "conversion_seconds": 0.000802166061475873,
+        "adapted_forward_seconds": 0.038511249935254455,
+        "storage_seconds": 0.0018092499813064933,
+        "native_seconds": 0.04395679209847003,
+        "full_seconds": 0.08802825002931058
+      }
+    },
+    {
+      "case": "prompt-0/branch-0/decode-2",
+      "prefix_tokens": 17,
+      "incoming_token_ids": [
+        464
+      ],
+      "native_max_abs_error": 0.0,
+      "native_logits_bitwise_equal": true,
+      "full_recompute_max_abs_error": 0.0001983642578125,
+      "native_vs_full_recompute_max_abs_error": 0.0001983642578125,
+      "greedy_ids": {
+        "adapted": 12940,
+        "native": 12940,
+        "full": 12940
+      },
+      "stored_kv_bitwise_equal": true,
+      "native_check": "passed",
+      "full_recompute_check": "failed",
+      "timing": {
+        "adapted_seconds": 0.053840499953366816,
+        "conversion_seconds": 0.0016802499303594232,
+        "adapted_forward_seconds": 0.050088124931789935,
+        "storage_seconds": 0.0020706671057268977,
+        "native_seconds": 0.05928275000769645,
+        "full_seconds": 0.1103049999801442
+      }
+    },
+    {
+      "case": "prompt-0/branch-0/decode-3",
+      "prefix_tokens": 18,
+      "incoming_token_ids": [
+        12940
+      ],
+      "native_max_abs_error": 0.0,
+      "native_logits_bitwise_equal": true,
+      "full_recompute_max_abs_error": 0.000213623046875,
+      "native_vs_full_recompute_max_abs_error": 0.000213623046875,
+      "greedy_ids": {
+        "adapted": 1276,
+        "native": 1276,
+        "full": 1276
+      },
+      "stored_kv_bitwise_equal": true,
+      "native_check": "passed",
+      "full_recompute_check": "failed",
+      "timing": {
+        "adapted_seconds": 0.05764679203275591,
+        "conversion_seconds": 0.0014099590480327606,
+        "adapted_forward_seconds": 0.0531539999647066,
+        "storage_seconds": 0.0030815419740974903,
+        "native_seconds": 0.04261404206044972,
+        "full_seconds": 0.06469670799560845
+      }
+    },
+    {
+      "case": "prompt-0/branch-1/suffix",
+      "prefix_tokens": 8,
+      "incoming_token_ids": [
+        257,
+        28991,
+        8478,
+        318,
+        8606,
+        11512,
+        13
+      ],
+      "native_max_abs_error": 0.0,
+      "native_logits_bitwise_equal": true,
+      "full_recompute_max_abs_error": 0.0,
+      "native_vs_full_recompute_max_abs_error": 0.0,
+      "greedy_ids": {
+        "adapted": 198,
+        "native": 198,
+        "full": 198
+      },
+      "stored_kv_bitwise_equal": true,
+      "native_check": "passed",
+      "full_recompute_check": "passed",
+      "timing": {
+        "adapted_seconds": 0.04877191595733166,
+        "conversion_seconds": 0.0007557909702882171,
+        "adapted_forward_seconds": 0.04743358411360532,
+        "storage_seconds": 0.0005816669436171651,
+        "native_seconds": 0.042937583988532424,
+        "full_seconds": 0.1621319999685511
+      }
+    },
+    {
+      "case": "prompt-0/branch-1/decode-0",
+      "prefix_tokens": 15,
+      "incoming_token_ids": [
+        198
+      ],
+      "native_max_abs_error": 0.0,
+      "native_logits_bitwise_equal": true,
+      "full_recompute_max_abs_error": 0.000701904296875,
+      "native_vs_full_recompute_max_abs_error": 0.000701904296875,
+      "greedy_ids": {
+        "adapted": 198,
+        "native": 198,
+        "full": 198
+      },
+      "stored_kv_bitwise_equal": true,
+      "native_check": "passed",
+      "full_recompute_check": "failed",
+      "timing": {
+        "adapted_seconds": 0.047538834041915834,
+        "conversion_seconds": 0.0009905420010909438,
+        "adapted_forward_seconds": 0.04430000006686896,
+        "storage_seconds": 0.0022469579707831144,
+        "native_seconds": 0.036647790926508605,
+        "full_seconds": 0.05195799993816763
+      }
+    },
+    {
+      "case": "prompt-0/branch-1/decode-1",
+      "prefix_tokens": 16,
+      "incoming_token_ids": [
+        198
+      ],
+      "native_max_abs_error": 0.0,
+      "native_logits_bitwise_equal": true,
+      "full_recompute_max_abs_error": 0.00018310546875,
+      "native_vs_full_recompute_max_abs_error": 0.00018310546875,
+      "greedy_ids": {
+        "adapted": 464,
+        "native": 464,
+        "full": 464
+      },
+      "stored_kv_bitwise_equal": true,
+      "native_check": "passed",
+      "full_recompute_check": "failed",
+      "timing": {
+        "adapted_seconds": 0.02997687493916601,
+        "conversion_seconds": 0.0007509579882025719,
+        "adapted_forward_seconds": 0.02868579200003296,
+        "storage_seconds": 0.0005396660417318344,
+        "native_seconds": 0.027624125010333955,
+        "full_seconds": 0.05125129199586809
+      }
+    },
+    {
+      "case": "prompt-0/branch-1/decode-2",
+      "prefix_tokens": 17,
+      "incoming_token_ids": [
+        464
+      ],
+      "native_max_abs_error": 0.0,
+      "native_logits_bitwise_equal": true,
+      "full_recompute_max_abs_error": 0.00017547607421875,
+      "native_vs_full_recompute_max_abs_error": 0.00017547607421875,
+      "greedy_ids": {
+        "adapted": 1708,
+        "native": 1708,
+        "full": 1708
+      },
+      "stored_kv_bitwise_equal": true,
+      "native_check": "passed",
+      "full_recompute_check": "failed",
+      "timing": {
+        "adapted_seconds": 0.027943250024691224,
+        "conversion_seconds": 0.00044712505768984556,
+        "adapted_forward_seconds": 0.026368374936282635,
+        "storage_seconds": 0.0011272910051047802,
+        "native_seconds": 0.0290330839343369,
+        "full_seconds": 0.0569785829866305
+      }
+    },
+    {
+      "case": "prompt-0/branch-1/decode-3",
+      "prefix_tokens": 18,
+      "incoming_token_ids": [
+        1708
+      ],
+      "native_max_abs_error": 0.0,
+      "native_logits_bitwise_equal": true,
+      "full_recompute_max_abs_error": 0.0002593994140625,
+      "native_vs_full_recompute_max_abs_error": 0.0002593994140625,
+      "greedy_ids": {
+        "adapted": 1672,
+        "native": 1672,
+        "full": 1672
+      },
+      "stored_kv_bitwise_equal": true,
+      "native_check": "passed",
+      "full_recompute_check": "failed",
+      "timing": {
+        "adapted_seconds": 0.03508887498173863,
+        "conversion_seconds": 0.001328249927610159,
+        "adapted_forward_seconds": 0.03265225002542138,
+        "storage_seconds": 0.0011074170470237732,
+        "native_seconds": 0.060697624925523996,
+        "full_seconds": 0.11957466707099229
+      }
+    },
+    {
+      "case": "prompt-0/partial-accept/replacement",
+      "prefix_tokens": 10,
+      "incoming_token_ids": [
+        11512
+      ],
+      "native_max_abs_error": 0.0,
+      "native_logits_bitwise_equal": true,
+      "full_recompute_max_abs_error": 0.000335693359375,
+      "native_vs_full_recompute_max_abs_error": 0.000335693359375,
+      "greedy_ids": {
+        "adapted": 21721,
+        "native": 21721,
+        "full": 21721
+      },
+      "stored_kv_bitwise_equal": true,
+      "native_check": "passed",
+      "full_recompute_check": "failed",
+      "timing": {
+        "adapted_seconds": 0.13288204197306186,
+        "conversion_seconds": 0.006281291949562728,
+        "adapted_forward_seconds": 0.11928770795930177,
+        "storage_seconds": 0.007311958004720509,
+        "native_seconds": 0.05563933297526091,
+        "full_seconds": 0.06686537503264844
+      }
+    },
+    {
+      "case": "prompt-0/partial-accept/decode-0",
+      "prefix_tokens": 11,
+      "incoming_token_ids": [
+        21721
+      ],
+      "native_max_abs_error": 0.0,
+      "native_logits_bitwise_equal": true,
+      "full_recompute_max_abs_error": 0.00020599365234375,
+      "native_vs_full_recompute_max_abs_error": 0.00020599365234375,
+      "greedy_ids": {
+        "adapted": 13,
+        "native": 13,
+        "full": 13
+      },
+      "stored_kv_bitwise_equal": true,
+      "native_check": "passed",
+      "full_recompute_check": "failed",
+      "timing": {
+        "adapted_seconds": 0.03557141707278788,
+        "conversion_seconds": 0.0004442090867087245,
+        "adapted_forward_seconds": 0.03465645795222372,
+        "storage_seconds": 0.00047033303417265415,
+        "native_seconds": 0.041315542068332434,
+        "full_seconds": 0.048178707947954535
+      }
+    },
+    {
+      "case": "prompt-0/partial-accept/decode-1",
+      "prefix_tokens": 12,
+      "incoming_token_ids": [
+        13
+      ],
+      "native_max_abs_error": 0.0,
+      "native_logits_bitwise_equal": true,
+      "full_recompute_max_abs_error": 0.0003662109375,
+      "native_vs_full_recompute_max_abs_error": 0.0003662109375,
+      "greedy_ids": {
+        "adapted": 198,
+        "native": 198,
+        "full": 198
+      },
+      "stored_kv_bitwise_equal": true,
+      "native_check": "passed",
+      "full_recompute_check": "failed",
+      "timing": {
+        "adapted_seconds": 0.030016709002666175,
+        "conversion_seconds": 0.0006792499916628003,
+        "adapted_forward_seconds": 0.028797457925975323,
+        "storage_seconds": 0.0005390000296756625,
+        "native_seconds": 0.0304227500455454,
+        "full_seconds": 0.04274983296636492
+      }
+    },
+    {
+      "case": "prompt-0/partial-accept/decode-2",
+      "prefix_tokens": 13,
+      "incoming_token_ids": [
+        198
+      ],
+      "native_max_abs_error": 0.0,
+      "native_logits_bitwise_equal": true,
+      "full_recompute_max_abs_error": 0.000640869140625,
+      "native_vs_full_recompute_max_abs_error": 0.000640869140625,
+      "greedy_ids": {
+        "adapted": 198,
+        "native": 198,
+        "full": 198
+      },
+      "stored_kv_bitwise_equal": true,
+      "native_check": "passed",
+      "full_recompute_check": "failed",
+      "timing": {
+        "adapted_seconds": 0.029292125022038817,
+        "conversion_seconds": 0.0011491660261526704,
+        "adapted_forward_seconds": 0.027650290983729064,
+        "storage_seconds": 0.0004920419305562973,
+        "native_seconds": 0.026274875039234757,
+        "full_seconds": 0.04027816699817777
+      }
+    },
+    {
+      "case": "prompt-0/partial-accept/decode-3",
+      "prefix_tokens": 14,
+      "incoming_token_ids": [
+        198
+      ],
+      "native_max_abs_error": 0.0,
+      "native_logits_bitwise_equal": true,
+      "full_recompute_max_abs_error": 0.00019073486328125,
+      "native_vs_full_recompute_max_abs_error": 0.00019073486328125,
+      "greedy_ids": {
+        "adapted": 464,
+        "native": 464,
+        "full": 464
+      },
+      "stored_kv_bitwise_equal": true,
+      "native_check": "passed",
+      "full_recompute_check": "failed",
+      "timing": {
+        "adapted_seconds": 0.026752042002044618,
+        "conversion_seconds": 0.00043929205276072025,
+        "adapted_forward_seconds": 0.025741167017258704,
+        "storage_seconds": 0.0005710830446332693,
+        "native_seconds": 0.02953987498767674,
+        "full_seconds": 0.04080208297818899
+      }
+    },
+    {
+      "case": "prompt-1/branch-0/suffix",
+      "prefix_tokens": 7,
+      "incoming_token_ids": [
+        734,
+        13737,
+        2648,
+        262,
+        976,
+        2106,
+        13
+      ],
+      "native_max_abs_error": 0.0,
+      "native_logits_bitwise_equal": true,
+      "full_recompute_max_abs_error": 0.0001068115234375,
+      "native_vs_full_recompute_max_abs_error": 0.0001068115234375,
+      "greedy_ids": {
+        "adapted": 383,
+        "native": 383,
+        "full": 383
+      },
+      "stored_kv_bitwise_equal": true,
+      "native_check": "passed",
+      "full_recompute_check": "failed",
+      "timing": {
+        "adapted_seconds": 0.035669917007908225,
+        "conversion_seconds": 0.0005173749523237348,
+        "adapted_forward_seconds": 0.03440466593019664,
+        "storage_seconds": 0.0007470829878002405,
+        "native_seconds": 0.03535870905034244,
+        "full_seconds": 0.039480292005464435
+      }
+    },
+    {
+      "case": "prompt-1/branch-0/decode-0",
+      "prefix_tokens": 14,
+      "incoming_token_ids": [
+        383
+      ],
+      "native_max_abs_error": 0.0,
+      "native_logits_bitwise_equal": true,
+      "full_recompute_max_abs_error": 0.00020599365234375,
+      "native_vs_full_recompute_max_abs_error": 0.00020599365234375,
+      "greedy_ids": {
+        "adapted": 717,
+        "native": 717,
+        "full": 717
+      },
+      "stored_kv_bitwise_equal": true,
+      "native_check": "passed",
+      "full_recompute_check": "failed",
+      "timing": {
+        "adapted_seconds": 0.027849000063724816,
+        "conversion_seconds": 0.0005533340154215693,
+        "adapted_forward_seconds": 0.026854499941691756,
+        "storage_seconds": 0.00044070801232010126,
+        "native_seconds": 0.027832332998514175,
+        "full_seconds": 0.041458791005425155
+      }
+    },
+    {
+      "case": "prompt-1/branch-0/decode-1",
+      "prefix_tokens": 15,
+      "incoming_token_ids": [
+        717
+      ],
+      "native_max_abs_error": 0.0,
+      "native_logits_bitwise_equal": true,
+      "full_recompute_max_abs_error": 0.0002288818359375,
+      "native_vs_full_recompute_max_abs_error": 0.0002288818359375,
+      "greedy_ids": {
+        "adapted": 318,
+        "native": 318,
+        "full": 318
+      },
+      "stored_kv_bitwise_equal": true,
+      "native_check": "passed",
+      "full_recompute_check": "failed",
+      "timing": {
+        "adapted_seconds": 0.035647124983370304,
+        "conversion_seconds": 0.0006994169671088457,
+        "adapted_forward_seconds": 0.03427408402785659,
+        "storage_seconds": 0.0006725420244038105,
+        "native_seconds": 0.030341665958985686,
+        "full_seconds": 0.04908854200039059
+      }
+    },
+    {
+      "case": "prompt-1/branch-0/decode-2",
+      "prefix_tokens": 16,
+      "incoming_token_ids": [
+        318
+      ],
+      "native_max_abs_error": 0.0,
+      "native_logits_bitwise_equal": true,
+      "full_recompute_max_abs_error": 0.0001983642578125,
+      "native_vs_full_recompute_max_abs_error": 0.0001983642578125,
+      "greedy_ids": {
+        "adapted": 262,
+        "native": 262,
+        "full": 262
+      },
+      "stored_kv_bitwise_equal": true,
+      "native_check": "passed",
+      "full_recompute_check": "failed",
+      "timing": {
+        "adapted_seconds": 0.028319958015345037,
+        "conversion_seconds": 0.0006473329849541187,
+        "adapted_forward_seconds": 0.02711066696792841,
+        "storage_seconds": 0.0005614169640466571,
+        "native_seconds": 0.027628791984170675,
+        "full_seconds": 0.05190029100049287
+      }
+    },
+    {
+      "case": "prompt-1/branch-0/decode-3",
+      "prefix_tokens": 17,
+      "incoming_token_ids": [
+        262
+      ],
+      "native_max_abs_error": 0.0,
+      "native_logits_bitwise_equal": true,
+      "full_recompute_max_abs_error": 0.00019073486328125,
+      "native_vs_full_recompute_max_abs_error": 0.00019073486328125,
+      "greedy_ids": {
+        "adapted": 15558,
+        "native": 15558,
+        "full": 15558
+      },
+      "stored_kv_bitwise_equal": true,
+      "native_check": "passed",
+      "full_recompute_check": "failed",
+      "timing": {
+        "adapted_seconds": 0.029428499983623624,
+        "conversion_seconds": 0.0008098749676719308,
+        "adapted_forward_seconds": 0.027859458001330495,
+        "storage_seconds": 0.0007581670070067048,
+        "native_seconds": 0.027746374951675534,
+        "full_seconds": 0.051957708899863064
+      }
+    },
+    {
+      "case": "prompt-1/branch-1/suffix",
+      "prefix_tokens": 7,
+      "incoming_token_ids": [
+        257,
+        28991,
+        8478,
+        318,
+        8606,
+        11512,
+        13
+      ],
+      "native_max_abs_error": 0.0,
+      "native_logits_bitwise_equal": true,
+      "full_recompute_max_abs_error": 0.0001220703125,
+      "native_vs_full_recompute_max_abs_error": 0.0001220703125,
+      "greedy_ids": {
+        "adapted": 198,
+        "native": 198,
+        "full": 198
+      },
+      "stored_kv_bitwise_equal": true,
+      "native_check": "passed",
+      "full_recompute_check": "failed",
+      "timing": {
+        "adapted_seconds": 0.03655145794618875,
+        "conversion_seconds": 0.0005847079446539283,
+        "adapted_forward_seconds": 0.03483429201878607,
+        "storage_seconds": 0.0011316250311210752,
+        "native_seconds": 0.03850312496069819,
+        "full_seconds": 0.052198040997609496
+      }
+    },
+    {
+      "case": "prompt-1/branch-1/decode-0",
+      "prefix_tokens": 14,
+      "incoming_token_ids": [
+        198
+      ],
+      "native_max_abs_error": 0.0,
+      "native_logits_bitwise_equal": true,
+      "full_recompute_max_abs_error": 0.00067138671875,
+      "native_vs_full_recompute_max_abs_error": 0.00067138671875,
+      "greedy_ids": {
+        "adapted": 198,
+        "native": 198,
+        "full": 198
+      },
+      "stored_kv_bitwise_equal": true,
+      "native_check": "passed",
+      "full_recompute_check": "failed",
+      "timing": {
+        "adapted_seconds": 0.031116334022954106,
+        "conversion_seconds": 0.0006992500275373459,
+        "adapted_forward_seconds": 0.029651124961674213,
+        "storage_seconds": 0.0007651250343769789,
+        "native_seconds": 0.03482112498022616,
+        "full_seconds": 0.04595070891082287
+      }
+    },
+    {
+      "case": "prompt-1/branch-1/decode-1",
+      "prefix_tokens": 15,
+      "incoming_token_ids": [
+        198
+      ],
+      "native_max_abs_error": 0.0,
+      "native_logits_bitwise_equal": true,
+      "full_recompute_max_abs_error": 0.000213623046875,
+      "native_vs_full_recompute_max_abs_error": 0.000213623046875,
+      "greedy_ids": {
+        "adapted": 464,
+        "native": 464,
+        "full": 464
+      },
+      "stored_kv_bitwise_equal": true,
+      "native_check": "passed",
+      "full_recompute_check": "failed",
+      "timing": {
+        "adapted_seconds": 0.03200008301064372,
+        "conversion_seconds": 0.0007592079928144813,
+        "adapted_forward_seconds": 0.030747625045478344,
+        "storage_seconds": 0.0004926250549033284,
+        "native_seconds": 0.036192583036608994,
+        "full_seconds": 0.04356308304704726
+      }
+    },
+    {
+      "case": "prompt-1/branch-1/decode-2",
+      "prefix_tokens": 16,
+      "incoming_token_ids": [
+        464
+      ],
+      "native_max_abs_error": 0.0,
+      "native_logits_bitwise_equal": true,
+      "full_recompute_max_abs_error": 0.00018310546875,
+      "native_vs_full_recompute_max_abs_error": 0.00018310546875,
+      "greedy_ids": {
+        "adapted": 3348,
+        "native": 3348,
+        "full": 3348
+      },
+      "stored_kv_bitwise_equal": true,
+      "native_check": "passed",
+      "full_recompute_check": "failed",
+      "timing": {
+        "adapted_seconds": 0.04404908302240074,
+        "conversion_seconds": 0.0007420420879498124,
+        "adapted_forward_seconds": 0.03983437502756715,
+        "storage_seconds": 0.003471667063422501,
+        "native_seconds": 0.03125216602347791,
+        "full_seconds": 0.10862925008405
+      }
+    },
+    {
+      "case": "prompt-1/branch-1/decode-3",
+      "prefix_tokens": 17,
+      "incoming_token_ids": [
+        3348
+      ],
+      "native_max_abs_error": 0.0,
+      "native_logits_bitwise_equal": true,
+      "full_recompute_max_abs_error": 0.0002899169921875,
+      "native_vs_full_recompute_max_abs_error": 0.0002899169921875,
+      "greedy_ids": {
+        "adapted": 11,
+        "native": 11,
+        "full": 11
+      },
+      "stored_kv_bitwise_equal": true,
+      "native_check": "passed",
+      "full_recompute_check": "failed",
+      "timing": {
+        "adapted_seconds": 0.03497737506404519,
+        "conversion_seconds": 0.0007507080445066094,
+        "adapted_forward_seconds": 0.03356908308342099,
+        "storage_seconds": 0.0006567920790985227,
+        "native_seconds": 0.033994541969150305,
+        "full_seconds": 0.07186145801097155
+      }
+    },
+    {
+      "case": "prompt-1/partial-accept/replacement",
+      "prefix_tokens": 9,
+      "incoming_token_ids": [
+        11512
+      ],
+      "native_max_abs_error": 0.0,
+      "native_logits_bitwise_equal": true,
+      "full_recompute_max_abs_error": 0.000335693359375,
+      "native_vs_full_recompute_max_abs_error": 0.000335693359375,
+      "greedy_ids": {
+        "adapted": 4553,
+        "native": 4553,
+        "full": 4553
+      },
+      "stored_kv_bitwise_equal": true,
+      "native_check": "passed",
+      "full_recompute_check": "failed",
+      "timing": {
+        "adapted_seconds": 0.03540425002574921,
+        "conversion_seconds": 0.0006613750010728836,
+        "adapted_forward_seconds": 0.034249332966282964,
+        "storage_seconds": 0.0004927499685436487,
+        "native_seconds": 0.02818841696716845,
+        "full_seconds": 0.0457884999923408
+      }
+    },
+    {
+      "case": "prompt-1/partial-accept/decode-0",
+      "prefix_tokens": 10,
+      "incoming_token_ids": [
+        4553
+      ],
+      "native_max_abs_error": 0.0,
+      "native_logits_bitwise_equal": true,
+      "full_recompute_max_abs_error": 0.000213623046875,
+      "native_vs_full_recompute_max_abs_error": 0.000213623046875,
+      "greedy_ids": {
+        "adapted": 262,
+        "native": 262,
+        "full": 262
+      },
+      "stored_kv_bitwise_equal": true,
+      "native_check": "passed",
+      "full_recompute_check": "failed",
+      "timing": {
+        "adapted_seconds": 0.03299254202283919,
+        "conversion_seconds": 0.0005662500625476241,
+        "adapted_forward_seconds": 0.03185062506236136,
+        "storage_seconds": 0.0005750840064138174,
+        "native_seconds": 0.03289995901286602,
+        "full_seconds": 0.04280633304733783
+      }
+    },
+    {
+      "case": "prompt-1/partial-accept/decode-1",
+      "prefix_tokens": 11,
+      "incoming_token_ids": [
+        262
+      ],
+      "native_max_abs_error": 0.0,
+      "native_logits_bitwise_equal": true,
+      "full_recompute_max_abs_error": 0.0002593994140625,
+      "native_vs_full_recompute_max_abs_error": 0.0002593994140625,
+      "greedy_ids": {
+        "adapted": 734,
+        "native": 734,
+        "full": 734
+      },
+      "stored_kv_bitwise_equal": true,
+      "native_check": "passed",
+      "full_recompute_check": "failed",
+      "timing": {
+        "adapted_seconds": 0.03384375001769513,
+        "conversion_seconds": 0.000386166968382895,
+        "adapted_forward_seconds": 0.032779459026642144,
+        "storage_seconds": 0.0006772920023649931,
+        "native_seconds": 0.034067792003042996,
+        "full_seconds": 0.04291058296803385
+      }
+    },
+    {
+      "case": "prompt-1/partial-accept/decode-2",
+      "prefix_tokens": 12,
+      "incoming_token_ids": [
+        734
+      ],
+      "native_max_abs_error": 0.0,
+      "native_logits_bitwise_equal": true,
+      "full_recompute_max_abs_error": 0.00019073486328125,
+      "native_vs_full_recompute_max_abs_error": 0.00019073486328125,
+      "greedy_ids": {
+        "adapted": 13,
+        "native": 13,
+        "full": 13
+      },
+      "stored_kv_bitwise_equal": true,
+      "native_check": "passed",
+      "full_recompute_check": "failed",
+      "timing": {
+        "adapted_seconds": 0.03455695800948888,
+        "conversion_seconds": 0.0005268750246614218,
+        "adapted_forward_seconds": 0.03355904191266745,
+        "storage_seconds": 0.00047029100824147463,
+        "native_seconds": 0.04055254196282476,
+        "full_seconds": 0.044631959055550396
+      }
+    },
+    {
+      "case": "prompt-1/partial-accept/decode-3",
+      "prefix_tokens": 13,
+      "incoming_token_ids": [
+        13
+      ],
+      "native_max_abs_error": 0.0,
+      "native_logits_bitwise_equal": true,
+      "full_recompute_max_abs_error": 0.000396728515625,
+      "native_vs_full_recompute_max_abs_error": 0.000396728515625,
+      "greedy_ids": {
+        "adapted": 198,
+        "native": 198,
+        "full": 198
+      },
+      "stored_kv_bitwise_equal": true,
+      "native_check": "passed",
+      "full_recompute_check": "failed",
+      "timing": {
+        "adapted_seconds": 0.03359479096252471,
+        "conversion_seconds": 0.0006298329681158066,
+        "adapted_forward_seconds": 0.03246100002434105,
+        "storage_seconds": 0.0005028749583289027,
+        "native_seconds": 0.03013204096350819,
+        "full_seconds": 0.045168375014327466
+      }
+    },
+    {
+      "case": "prompt-2/branch-0/suffix",
+      "prefix_tokens": 8,
+      "incoming_token_ids": [
+        734,
+        13737,
+        2648,
+        262,
+        976,
+        2106,
+        13
+      ],
+      "native_max_abs_error": 0.0,
+      "native_logits_bitwise_equal": true,
+      "full_recompute_max_abs_error": 0.0,
+      "native_vs_full_recompute_max_abs_error": 0.0,
+      "greedy_ids": {
+        "adapted": 198,
+        "native": 198,
+        "full": 198
+      },
+      "stored_kv_bitwise_equal": true,
+      "native_check": "passed",
+      "full_recompute_check": "passed",
+      "timing": {
+        "adapted_seconds": 0.03698237496428192,
+        "conversion_seconds": 0.00044712494127452374,
+        "adapted_forward_seconds": 0.03523841698188335,
+        "storage_seconds": 0.0012960840249434114,
+        "native_seconds": 0.03440479200799018,
+        "full_seconds": 0.03952420805580914
+      }
+    },
+    {
+      "case": "prompt-2/branch-0/decode-0",
+      "prefix_tokens": 15,
+      "incoming_token_ids": [
+        198
+      ],
+      "native_max_abs_error": 0.0,
+      "native_logits_bitwise_equal": true,
+      "full_recompute_max_abs_error": 0.000640869140625,
+      "native_vs_full_recompute_max_abs_error": 0.000640869140625,
+      "greedy_ids": {
+        "adapted": 198,
+        "native": 198,
+        "full": 198
+      },
+      "stored_kv_bitwise_equal": true,
+      "native_check": "passed",
+      "full_recompute_check": "failed",
+      "timing": {
+        "adapted_seconds": 0.027607584022916853,
+        "conversion_seconds": 0.0005480840336531401,
+        "adapted_forward_seconds": 0.02655374992173165,
+        "storage_seconds": 0.0005052919732406735,
+        "native_seconds": 0.026728666969574988,
+        "full_seconds": 0.036776875029318035
+      }
+    },
+    {
+      "case": "prompt-2/branch-0/decode-1",
+      "prefix_tokens": 16,
+      "incoming_token_ids": [
+        198
+      ],
+      "native_max_abs_error": 0.0,
+      "native_logits_bitwise_equal": true,
+      "full_recompute_max_abs_error": 0.000213623046875,
+      "native_vs_full_recompute_max_abs_error": 0.000213623046875,
+      "greedy_ids": {
+        "adapted": 464,
+        "native": 464,
+        "full": 464
+      },
+      "stored_kv_bitwise_equal": true,
+      "native_check": "passed",
+      "full_recompute_check": "failed",
+      "timing": {
+        "adapted_seconds": 0.026596250012516975,
+        "conversion_seconds": 0.00043237500358372927,
+        "adapted_forward_seconds": 0.025595707935281098,
+        "storage_seconds": 0.0005674159619957209,
+        "native_seconds": 0.025375416036695242,
+        "full_seconds": 0.045631958986632526
+      }
+    },
+    {
+      "case": "prompt-2/branch-0/decode-2",
+      "prefix_tokens": 17,
+      "incoming_token_ids": [
+        464
+      ],
+      "native_max_abs_error": 0.0,
+      "native_logits_bitwise_equal": true,
+      "full_recompute_max_abs_error": 0.00019073486328125,
+      "native_vs_full_recompute_max_abs_error": 0.00019073486328125,
+      "greedy_ids": {
+        "adapted": 17050,
+        "native": 17050,
+        "full": 17050
+      },
+      "stored_kv_bitwise_equal": true,
+      "native_check": "passed",
+      "full_recompute_check": "failed",
+      "timing": {
+        "adapted_seconds": 0.027140915975905955,
+        "conversion_seconds": 0.0006412080256268382,
+        "adapted_forward_seconds": 0.025839082896709442,
+        "storage_seconds": 0.0006602499634027481,
+        "native_seconds": 0.02560766600072384,
+        "full_seconds": 0.05175637500360608
+      }
+    },
+    {
+      "case": "prompt-2/branch-0/decode-3",
+      "prefix_tokens": 18,
+      "incoming_token_ids": [
+        17050
+      ],
+      "native_max_abs_error": 0.0,
+      "native_logits_bitwise_equal": true,
+      "full_recompute_max_abs_error": 0.0003204345703125,
+      "native_vs_full_recompute_max_abs_error": 0.0003204345703125,
+      "greedy_ids": {
+        "adapted": 460,
+        "native": 460,
+        "full": 460
+      },
+      "stored_kv_bitwise_equal": true,
+      "native_check": "passed",
+      "full_recompute_check": "failed",
+      "timing": {
+        "adapted_seconds": 0.03406866604927927,
+        "conversion_seconds": 0.0005537909455597401,
+        "adapted_forward_seconds": 0.032406667014583945,
+        "storage_seconds": 0.001107499934732914,
+        "native_seconds": 0.06451337493490428,
+        "full_seconds": 0.08327933307737112
+      }
+    },
+    {
+      "case": "prompt-2/branch-1/suffix",
+      "prefix_tokens": 8,
+      "incoming_token_ids": [
+        257,
+        28991,
+        8478,
+        318,
+        8606,
+        11512,
+        13
+      ],
+      "native_max_abs_error": 0.0,
+      "native_logits_bitwise_equal": true,
+      "full_recompute_max_abs_error": 0.0,
+      "native_vs_full_recompute_max_abs_error": 0.0,
+      "greedy_ids": {
+        "adapted": 198,
+        "native": 198,
+        "full": 198
+      },
+      "stored_kv_bitwise_equal": true,
+      "native_check": "passed",
+      "full_recompute_check": "passed",
+      "timing": {
+        "adapted_seconds": 0.04807433299720287,
+        "conversion_seconds": 0.0007230000337585807,
+        "adapted_forward_seconds": 0.046247083926573396,
+        "storage_seconds": 0.0011035000206902623,
+        "native_seconds": 0.06455195799935609,
+        "full_seconds": 0.07624458300415426
+      }
+    },
+    {
+      "case": "prompt-2/branch-1/decode-0",
+      "prefix_tokens": 15,
+      "incoming_token_ids": [
+        198
+      ],
+      "native_max_abs_error": 0.0,
+      "native_logits_bitwise_equal": true,
+      "full_recompute_max_abs_error": 0.0006103515625,
+      "native_vs_full_recompute_max_abs_error": 0.0006103515625,
+      "greedy_ids": {
+        "adapted": 198,
+        "native": 198,
+        "full": 198
+      },
+      "stored_kv_bitwise_equal": true,
+      "native_check": "passed",
+      "full_recompute_check": "failed",
+      "timing": {
+        "adapted_seconds": 0.04763483302667737,
+        "conversion_seconds": 0.0007664579898118973,
+        "adapted_forward_seconds": 0.04577450000215322,
+        "storage_seconds": 0.0010934170568361878,
+        "native_seconds": 0.038165542064234614,
+        "full_seconds": 0.0536777499364689
+      }
+    },
+    {
+      "case": "prompt-2/branch-1/decode-1",
+      "prefix_tokens": 16,
+      "incoming_token_ids": [
+        198
+      ],
+      "native_max_abs_error": 0.0,
+      "native_logits_bitwise_equal": true,
+      "full_recompute_max_abs_error": 0.0001678466796875,
+      "native_vs_full_recompute_max_abs_error": 0.0001678466796875,
+      "greedy_ids": {
+        "adapted": 464,
+        "native": 464,
+        "full": 464
+      },
+      "stored_kv_bitwise_equal": true,
+      "native_check": "passed",
+      "full_recompute_check": "failed",
+      "timing": {
+        "adapted_seconds": 0.03915000008419156,
+        "conversion_seconds": 0.000612167059443891,
+        "adapted_forward_seconds": 0.037673291051760316,
+        "storage_seconds": 0.0008640419691801071,
+        "native_seconds": 0.03154183307196945,
+        "full_seconds": 0.061256582965143025
+      }
+    },
+    {
+      "case": "prompt-2/branch-1/decode-2",
+      "prefix_tokens": 17,
+      "incoming_token_ids": [
+        464
+      ],
+      "native_max_abs_error": 0.0,
+      "native_logits_bitwise_equal": true,
+      "full_recompute_max_abs_error": 0.000213623046875,
+      "native_vs_full_recompute_max_abs_error": 0.000213623046875,
+      "greedy_ids": {
+        "adapted": 17050,
+        "native": 17050,
+        "full": 17050
+      },
+      "stored_kv_bitwise_equal": true,
+      "native_check": "passed",
+      "full_recompute_check": "failed",
+      "timing": {
+        "adapted_seconds": 0.044363708002492785,
+        "conversion_seconds": 0.0014867499703541398,
+        "adapted_forward_seconds": 0.04222495900467038,
+        "storage_seconds": 0.0006512090330943465,
+        "native_seconds": 0.03844733291771263,
+        "full_seconds": 0.06573166605085135
+      }
+    },
+    {
+      "case": "prompt-2/branch-1/decode-3",
+      "prefix_tokens": 18,
+      "incoming_token_ids": [
+        17050
+      ],
+      "native_max_abs_error": 0.0,
+      "native_logits_bitwise_equal": true,
+      "full_recompute_max_abs_error": 0.0003662109375,
+      "native_vs_full_recompute_max_abs_error": 0.0003662109375,
+      "greedy_ids": {
+        "adapted": 460,
+        "native": 460,
+        "full": 460
+      },
+      "stored_kv_bitwise_equal": true,
+      "native_check": "passed",
+      "full_recompute_check": "failed",
+      "timing": {
+        "adapted_seconds": 0.03833616606425494,
+        "conversion_seconds": 0.001969875069335103,
+        "adapted_forward_seconds": 0.035334625048562884,
+        "storage_seconds": 0.0010305829346179962,
+        "native_seconds": 0.06425437494181097,
+        "full_seconds": 0.06240404094569385
+      }
+    },
+    {
+      "case": "prompt-2/partial-accept/replacement",
+      "prefix_tokens": 10,
+      "incoming_token_ids": [
+        11512
+      ],
+      "native_max_abs_error": 0.0,
+      "native_logits_bitwise_equal": true,
+      "full_recompute_max_abs_error": 0.000335693359375,
+      "native_vs_full_recompute_max_abs_error": 0.000335693359375,
+      "greedy_ids": {
+        "adapted": 21721,
+        "native": 21721,
+        "full": 21721
+      },
+      "stored_kv_bitwise_equal": true,
+      "native_check": "passed",
+      "full_recompute_check": "failed",
+      "timing": {
+        "adapted_seconds": 0.054947333061136305,
+        "conversion_seconds": 0.0038632910000160336,
+        "adapted_forward_seconds": 0.05038591707125306,
+        "storage_seconds": 0.0006971670081838965,
+        "native_seconds": 0.05087504198309034,
+        "full_seconds": 0.07406237500254065
+      }
+    },
+    {
+      "case": "prompt-2/partial-accept/decode-0",
+      "prefix_tokens": 11,
+      "incoming_token_ids": [
+        21721
+      ],
+      "native_max_abs_error": 0.0,
+      "native_logits_bitwise_equal": true,
+      "full_recompute_max_abs_error": 0.00017547607421875,
+      "native_vs_full_recompute_max_abs_error": 0.00017547607421875,
+      "greedy_ids": {
+        "adapted": 13,
+        "native": 13,
+        "full": 13
+      },
+      "stored_kv_bitwise_equal": true,
+      "native_check": "passed",
+      "full_recompute_check": "failed",
+      "timing": {
+        "adapted_seconds": 0.05959579104091972,
+        "conversion_seconds": 0.0007815830176696181,
+        "adapted_forward_seconds": 0.05834529106505215,
+        "storage_seconds": 0.00046816596295684576,
+        "native_seconds": 0.03332854202017188,
+        "full_seconds": 0.052192708011716604
+      }
+    },
+    {
+      "case": "prompt-2/partial-accept/decode-1",
+      "prefix_tokens": 12,
+      "incoming_token_ids": [
+        13
+      ],
+      "native_max_abs_error": 0.0,
+      "native_logits_bitwise_equal": true,
+      "full_recompute_max_abs_error": 0.0003814697265625,
+      "native_vs_full_recompute_max_abs_error": 0.0003814697265625,
+      "greedy_ids": {
+        "adapted": 198,
+        "native": 198,
+        "full": 198
+      },
+      "stored_kv_bitwise_equal": true,
+      "native_check": "passed",
+      "full_recompute_check": "failed",
+      "timing": {
+        "adapted_seconds": 0.05395941704045981,
+        "conversion_seconds": 0.0004455420421436429,
+        "adapted_forward_seconds": 0.05309833399951458,
+        "storage_seconds": 0.0004148749867454171,
+        "native_seconds": 0.03346299997065216,
+        "full_seconds": 0.05441079195588827
+      }
+    },
+    {
+      "case": "prompt-2/partial-accept/decode-2",
+      "prefix_tokens": 13,
+      "incoming_token_ids": [
+        198
+      ],
+      "native_max_abs_error": 0.0,
+      "native_logits_bitwise_equal": true,
+      "full_recompute_max_abs_error": 0.0006103515625,
+      "native_vs_full_recompute_max_abs_error": 0.0006103515625,
+      "greedy_ids": {
+        "adapted": 198,
+        "native": 198,
+        "full": 198
+      },
+      "stored_kv_bitwise_equal": true,
+      "native_check": "passed",
+      "full_recompute_check": "failed",
+      "timing": {
+        "adapted_seconds": 0.04047420900315046,
+        "conversion_seconds": 0.000532749923877418,
+        "adapted_forward_seconds": 0.03945216699503362,
+        "storage_seconds": 0.0004887089598923922,
+        "native_seconds": 0.034641167032532394,
+        "full_seconds": 0.04340570792555809
+      }
+    },
+    {
+      "case": "prompt-2/partial-accept/decode-3",
+      "prefix_tokens": 14,
+      "incoming_token_ids": [
+        198
+      ],
+      "native_max_abs_error": 0.0,
+      "native_logits_bitwise_equal": true,
+      "full_recompute_max_abs_error": 0.00019073486328125,
+      "native_vs_full_recompute_max_abs_error": 0.00019073486328125,
+      "greedy_ids": {
+        "adapted": 464,
+        "native": 464,
+        "full": 464
+      },
+      "stored_kv_bitwise_equal": true,
+      "native_check": "passed",
+      "full_recompute_check": "failed",
+      "timing": {
+        "adapted_seconds": 0.03381112508941442,
+        "conversion_seconds": 0.0005622080061584711,
+        "adapted_forward_seconds": 0.032543833018280566,
+        "storage_seconds": 0.0007042499491944909,
+        "native_seconds": 0.035536416922695935,
+        "full_seconds": 0.047776375082321465
+      }
+    }
+  ],
+  "transactions": [
+    {
+      "prompt_index": 0,
+      "rollback_parent_unchanged": true,
+      "partial_commit_matches_native": true,
+      "proposed_tokens": 7,
+      "accepted_tokens": 2,
+      "replacement_token_ids": [
+        11512
+      ]
+    },
+    {
+      "prompt_index": 1,
+      "rollback_parent_unchanged": true,
+      "partial_commit_matches_native": true,
+      "proposed_tokens": 7,
+      "accepted_tokens": 2,
+      "replacement_token_ids": [
+        11512
+      ]
+    },
+    {
+      "prompt_index": 2,
+      "rollback_parent_unchanged": true,
+      "partial_commit_matches_native": true,
+      "proposed_tokens": 7,
+      "accepted_tokens": 2,
+      "replacement_token_ids": [
+        11512
+      ]
+    }
+  ],
+  "outputs": [
+    {
+      "case": "prompt-0/branch-0",
+      "prompt": "A reliable cache must preserve its prefix when",
+      "suffix": " two branches share the same history.",
+      "generated_token_ids": [
+        198,
+        198,
+        464,
+        12940
+      ],
+      "generated_text": "\n\nThe cache"
+    },
+    {
+      "case": "prompt-0/branch-1",
+      "prompt": "A reliable cache must preserve its prefix when",
+      "suffix": " a speculative branch is rejected safely.",
+      "generated_token_ids": [
+        198,
+        198,
+        464,
+        1708
+      ],
+      "generated_text": "\n\nThe following"
+    },
+    {
+      "case": "prompt-1/branch-0",
+      "prompt": "The research notebook records every measurement because",
+      "suffix": " two branches share the same history.",
+      "generated_token_ids": [
+        383,
+        717,
+        318,
+        262
+      ],
+      "generated_text": " The first is the"
+    },
+    {
+      "case": "prompt-1/branch-1",
+      "prompt": "The research notebook records every measurement because",
+      "suffix": " a speculative branch is rejected safely.",
+      "generated_token_ids": [
+        198,
+        198,
+        464,
+        3348
+      ],
+      "generated_text": "\n\nThe paper"
+    },
+    {
+      "case": "prompt-2/branch-0",
+      "prompt": "A small compiler can improve memory efficiency when",
+      "suffix": " two branches share the same history.",
+      "generated_token_ids": [
+        198,
+        198,
+        464,
+        17050
+      ],
+      "generated_text": "\n\nThe compiler"
+    },
+    {
+      "case": "prompt-2/branch-1",
+      "prompt": "A small compiler can improve memory efficiency when",
+      "suffix": " a speculative branch is rejected safely.",
+      "generated_token_ids": [
+        198,
+        198,
+        464,
+        17050
+      ],
+      "generated_text": "\n\nThe compiler"
+    }
+  ],
+  "status": "failed",
+  "software": {
+    "torch": "2.8.0",
+    "transformers": "4.56.2",
+    "numpy": "2.3.3",
+    "safetensors": "0.6.2",
+    "huggingface-hub": "0.36.2"
+  },
+  "hardware": {
+    "system": "Darwin",
+    "release": "25.6.0",
+    "machine": "arm64",
+    "processor": "arm",
+    "backend": "cpu",
+    "threads": 1,
+    "interop_threads": 1
+  },
+  "snapshot_resolution_seconds": 0.0008099579717963934,
+  "model_load_seconds": 0.5564000839367509,
+  "timing_scope": {
+    "model_load": "local safetensors + tokenizer load; download and SHA-256 excluded / 本地权重和分词器加载；不含下载与 SHA-256",
+    "steps": "single observations, no warm-up; diagnostic breakdown, not a speedup benchmark / 单次观测，无预热；仅诊断分项，不是加速基准",
+    "adapted_seconds": "materialize + NumPy/Torch conversion + CPU forward + delta extraction + append / 物化、数组转换、CPU 前向、新增缓存提取及追加",
+    "native_seconds": "CPU forward only; constructing independent baseline cache excluded / 仅 CPU 前向，不含独立基线缓存构造",
+    "full_seconds": "CPU full-prefix forward only / 仅完整前缀 CPU 前向",
+    "claim": "timings are not comparable end-to-end inference performance / 不作为端到端性能对比"
+  },
+  "cleanup": {
+    "live_pages": 0,
+    "peak_pages": 6,
+    "live_bytes": 0,
+    "peak_bytes": 7077888,
+    "allocated_pages": 6,
+    "allocated_bytes": 7077888,
+    "copied_bytes": 17547264,
+    "sequences": 0
+  },
+  "summary": {
+    "comparisons": 45,
+    "native_passed": 45,
+    "native_failed": 0,
+    "full_recompute_passed": 4,
+    "full_recompute_failed": 41,
+    "native_max_abs_error": 0.0,
+    "full_recompute_max_abs_error": 0.000701904296875,
+    "all_greedy_equal": true,
+    "transactions_passed": true,
+    "cleanup_passed": true
+  },
+  "native_status": "passed",
+  "full_recompute_status": "failed",
+  "interpretation": {
+    "en": "Native-cache equality isolates storage correctness. Full-recompute failures retain the original 1e-5 criterion; equal native/full discrepancies are consistent with float32 execution-shape roundoff. This is a correctness experiment, not an end-to-end speedup claim.",
+    "zh": "原生缓存对照隔离存储正确性。完整重计算失败保留原定 1e-5 标准；原生与完整重计算的同等偏差符合 float32 计算形状舍入现象。这是正确性实验，不是端到端加速结论。"
+  },
+  "finished_at": "2026-09-26T16:48:40.947895+00:00"
+}

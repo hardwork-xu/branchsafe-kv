@@ -5,14 +5,73 @@ import argparse
 import json
 from pathlib import Path
 
-import matplotlib
-
-matplotlib.use("Agg")
-import matplotlib.pyplot as plt
 import numpy as np
 
 
+def validate_evidence(data):
+    """Reject incomplete, duplicated or failed evidence. / 拒绝不完整、重复或失败的证据。"""
+    if data.get("status") != "passed":
+        raise ValueError("incomplete/failed benchmark / 基准未完整通过")
+    methods = data["methods"]
+    names = [case["name"] for case in data["config"]["cases"]]
+    if set(methods) != {"dense", "eager_paged", "shared_paged"} or len(methods) != 3:
+        raise ValueError("invalid methods / 方法列表不合法")
+    if not names or len(names) != len(set(names)):
+        raise ValueError("invalid case names / 场景名称不合法")
+    repeats, warmup = data["config"]["repeats"], data["config"]["warmup"]
+    if type(repeats) is not int or repeats < 1 or type(warmup) is not int or warmup < 0:
+        raise ValueError("invalid repetition counts / 重复次数不合法")
+    expected = {
+        (case, scope, method, iteration)
+        for case in names
+        for scope in ("management", "management_and_read")
+        for method in methods
+        for iteration in range(-warmup, repeats)
+    }
+    seen = set()
+    orders = {}
+    for sample in data["samples"]:
+        key = (sample["case"], sample["scope"], sample["method"], sample["iteration"])
+        if key not in expected or key in seen or sample["status"] != "passed":
+            raise ValueError("missing/duplicate/failed samples / 样本缺失、重复或失败")
+        if (
+            type(sample["iteration"]) is not int
+            or type(sample["warmup"]) is not bool
+            or sample["warmup"] != (sample["iteration"] < 0)
+            or type(sample["order"]) is not int
+        ):
+            raise ValueError("invalid iteration metadata / 迭代元数据无效")
+        for field in ("elapsed_ns", "preload_ns", "managed_peak_bytes", "copied_bytes"):
+            value = sample[field]
+            if type(value) not in (int, float) or not np.isfinite(value) or value < 0:
+                raise ValueError("invalid sample metric / 样本指标无效")
+        if sample["elapsed_ns"] == 0:
+            raise ValueError("zero latency is invalid / 耗时不得为零")
+        seen.add(key)
+        group = (sample["case"], sample["scope"], sample["iteration"])
+        orders.setdefault(group, []).append(sample["order"])
+    if seen != expected or any(sorted(order) != list(range(3)) for order in orders.values()):
+        raise ValueError("incomplete samples or invalid run order / 样本不完整或运行顺序无效")
+    expected_pairs = {(case, method) for case in names for method in methods}
+    for section in ("correctness", "memory"):
+        pairs = []
+        for row in data[section]:
+            pairs.append((row["case"], row["method"]))
+            if row["status"] != "passed":
+                raise ValueError("failed correctness or memory evidence / 正确性或内存证据失败")
+            if section == "correctness" and row.get("exact_kv") is not True:
+                raise ValueError("exact KV check missing / 缺少精确KV校验")
+            if section == "memory" and (
+                type(row.get("process_peak_rss_bytes")) is not int
+                or row["process_peak_rss_bytes"] <= 0
+            ):
+                raise ValueError("invalid RSS evidence / RSS证据无效")
+        if set(pairs) != expected_pairs or len(pairs) != len(expected_pairs):
+            raise ValueError("incomplete evidence sections / 证据章节不完整")
+
+
 def summarize(data):
+    validate_evidence(data)
     rows = []
     for case in data["config"]["cases"]:
         for scope in ("management", "management_and_read"):
@@ -43,6 +102,11 @@ def summarize(data):
                         ),
                         "managed_peak_bytes": max(s["managed_peak_bytes"] for s in samples),
                         "copied_bytes": max(s["copied_bytes"] for s in samples),
+                        "allocated_bytes_at_branch_peak": (
+                            max(s["allocated_bytes_at_branch_peak"] for s in samples)
+                            if all("allocated_bytes_at_branch_peak" in s for s in samples)
+                            else None
+                        ),
                     }
                 )
     return rows
@@ -65,6 +129,11 @@ def table(rows, scope):
 
 
 def main():
+    import matplotlib
+
+    matplotlib.use("Agg")
+    import matplotlib.pyplot as plt
+
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--input", type=Path, default=Path("results/benchmark.json"))
     parser.add_argument("--output-dir", type=Path, default=Path("results"))

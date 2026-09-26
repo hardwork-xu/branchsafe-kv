@@ -2,18 +2,20 @@
 
 from __future__ import annotations
 
+import copy
 import random
 
 import numpy as np
 import pytest
 
-from branchsafe.baseline import DenseCache
+from branchsafe.baseline import DenseCache, DenseSequence
 from branchsafe.core import (
     CacheConfig,
     CacheError,
     CapacityError,
     ClosedError,
     PagedCache,
+    Sequence,
     StaleWriteError,
 )
 
@@ -742,3 +744,30 @@ def test_eager_fork_copy_failure_reclaims_child(backend, monkeypatch):
     cache.check_invariants()
     child = parent.fork()
     assert_values(child, prefix)
+
+
+@pytest.mark.parametrize("backend", ["dense", "shared"])
+def test_unowned_sequence_construction_and_shallow_copies_are_rejected(backend):
+    config = make_config()
+    cache = DenseCache(config, max_tokens=16) if backend == "dense" else PagedCache(config)
+    with pytest.raises(TypeError):
+        if backend == "dense":
+            DenseSequence(cache, 1, *arrays(config, 16))
+        else:
+            Sequence(cache, 1)
+    parent = cache.create()
+    prefix = arrays(config, 5)
+    parent.append(*prefix)
+    alias = copy.copy(parent)
+    for operation in (
+        alias.materialize,
+        alias.close,
+        alias.fork,
+        alias.ticket,
+        lambda: alias.append(*arrays(config, 1)),
+        lambda: alias.truncate(0),
+    ):
+        with pytest.raises(CacheError):
+            operation()
+        assert_values(parent, prefix)
+        cache.check_invariants()
