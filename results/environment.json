@@ -1,0 +1,27 @@
+{
+  "os": "Darwin",
+  "os_release": "25.6.0",
+  "architecture": "arm64",
+  "python": "3.12.2",
+  "numpy": "2.3.3",
+  "backend": "CPU NumPy",
+  "timer": "perf_counter_ns",
+  "cpu": "Apple M1 Pro",
+  "ram_bytes": 17179869184,
+  "logical_cpus": "10",
+  "gpu_detected": "Apple M1 Pro, 14 cores, Metal 4",
+  "mps_runtime_smoke": {
+    "available": true,
+    "sum_arange_16": 120.0
+  },
+  "cuda_available": false,
+  "project_backend": "CPU NumPy only",
+  "compiler": "Apple clang 21.0.0",
+  "make_available": true,
+  "cmake_available": false,
+  "docker_available": false,
+  "free_disk_at_start_gib_approx": 198,
+  "dependency_download": "verified PyPI install",
+  "model_download": "verified fixed GPT-2 safetensors, see model.json",
+  "private_machine_paths": "omitted"
+}

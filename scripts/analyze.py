@@ -132,6 +132,7 @@ def main():
     import matplotlib
 
     matplotlib.use("Agg")
+    matplotlib.rcParams["svg.hashsalt"] = "branchsafe-kv-0.1.0"
     import matplotlib.pyplot as plt
 
     parser = argparse.ArgumentParser(description=__doc__)
@@ -180,7 +181,9 @@ def main():
         ax.set_ylabel("Median latency (ms), IQR; lower is better")
         ax.set_title(scope.replace("_", " "))
     axes[0].legend(fontsize=8)
-    fig.savefig(args.output_dir / "benchmark.svg")
+    fig.savefig(args.output_dir / "benchmark.svg", metadata={"Date": None})
+    svg = args.output_dir / "benchmark.svg"
+    svg.write_text("\n".join(line.rstrip() for line in svg.read_text().splitlines()) + "\n")
     fig.savefig(args.output_dir / "benchmark.png", dpi=160)
     plt.close(fig)
     print("tables + plots generated / 已生成表格和图表")

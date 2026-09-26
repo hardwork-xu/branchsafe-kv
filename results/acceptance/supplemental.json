@@ -1,0 +1,123 @@
+{
+  "recorded_at": "2026-09-26T17:03:11.224690+00:00",
+  "git_revision": "c7931f5cf28a2a5f66ec4d954e2d355521c1fc61",
+  "source_manifest": {
+    "src/branchsafe/__init__.py": "9af1c6fe6e0ea1eca4e81292e76735f363250f608e1b4314caeae313ac986c23",
+    "src/branchsafe/__main__.py": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+    "src/branchsafe/baseline.py": "b3a3f634b8accf7903f30da97b3c44e416b016d6fe5c48b2323d9f438d073287",
+    "src/branchsafe/cli.py": "59480145305247f94d56a65acef40fac6dfefb4f9c7819ab8f904d442cdf8651",
+    "src/branchsafe/core.py": "8733fd07adb07260ffdfd1a309db79fae4f35542624ed239e864cd08df2306dc",
+    "src/branchsafe/provenance.py": "04fb5edfdb00e92c9fabc5ff584887c11f8c5775c45c2b5cedbb3d560d765be8",
+    "benchmark.py": "77e8e7aa841a893a20bb23c256be7e0560b88bff42a17983305eabeeec822683",
+    "pyproject.toml": "0dfea70b3d91409d424f2154c1b7dd5f1d7a1200436a6c3b6dddb9b60ba974d2",
+    "uv.lock": "2b276cc047fa8395f52c49bb0d1a63a2bc99350fa3b2c0225a094602e8d425c9"
+  },
+  "checks": [
+    {
+      "name": "clean_runtime_install",
+      "command": "UV_PROJECT_ENVIRONMENT=.venv-clean uv sync --frozen --no-dev",
+      "status": "passed",
+      "exit_code": 0,
+      "summary": "new isolated environment installed locked runtime; import and demo passed",
+      "evidence": "results/acceptance/clean_install.log"
+    },
+    {
+      "name": "benchmark",
+      "command": "python benchmark.py --output results/benchmark.json",
+      "status": "passed",
+      "exit_code": 0,
+      "summary": "1008 samples, 21 correctness checks; run bc2deb1c-429c-420a-82ac-b6e003fc2b77",
+      "evidence": "results/benchmark.json"
+    },
+    {
+      "name": "pretrained_native_equivalence",
+      "command": "python scripts/validate_model.py --offline --output results/model.json",
+      "status": "passed",
+      "exit_code": null,
+      "summary": "subcheck: 45/45 exact native cache logits; enclosing command exits 1 for full recompute",
+      "evidence": "results/model.json"
+    },
+    {
+      "name": "pretrained_full_recompute",
+      "command": "python scripts/validate_model.py --offline --output results/model.json",
+      "status": "failed",
+      "exit_code": 1,
+      "summary": "41/45 exceed frozen 1e-5; max 0.000701904296875; original baseline has identical deviations",
+      "evidence": "results/model.json"
+    },
+    {
+      "name": "citation_schema",
+      "command": "uv tool run --from cffconvert==2.0.0 cffconvert --validate",
+      "status": "passed",
+      "exit_code": 0,
+      "summary": "valid CFF 1.2.0 schema",
+      "evidence": "CITATION.cff"
+    },
+    {
+      "name": "accelerator_probe",
+      "command": "python -c \"import torch; x=torch.arange(16,device='mps',dtype=torch.float32); print(x.sum().cpu())\"",
+      "status": "passed",
+      "exit_code": 0,
+      "summary": "MPS available, sum=120; CUDA unavailable; project uses CPU only",
+      "evidence": "results/environment.json"
+    },
+    {
+      "name": "initial_generated_svg_diff",
+      "command": "git diff --check",
+      "exit_code": 2,
+      "status": "failed",
+      "summary": "matplotlib emitted trailing whitespace; generator now strips trailing line whitespace and uses stable SVG ids/date",
+      "evidence": "results/acceptance/git_diff-initial.log"
+    },
+    {
+      "name": "wheel_environment",
+      "command": [
+        ".venv-tools/bin/uv",
+        "venv",
+        "work/release-check"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "evidence": "results/acceptance/wheel_environment.log"
+    },
+    {
+      "name": "wheel_install",
+      "command": [
+        ".venv-tools/bin/uv",
+        "pip",
+        "install",
+        "--python",
+        "work/release-check/bin/python",
+        "dist/branchsafe_kv-0.1.0-py3-none-any.whl"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "evidence": "results/acceptance/wheel_install.log"
+    },
+    {
+      "name": "wheel_demo",
+      "command": [
+        "work/release-check/bin/branchsafe",
+        "demo"
+      ],
+      "status": "passed",
+      "exit_code": 0,
+      "evidence": "results/acceptance/wheel_demo.log"
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "dist/branchsafe_kv-0.1.0-py3-none-any.whl",
+      "sha256": "d37681d92875a6f277b79f0bbe6ad138594539415804345710191a7d94551d31",
+      "bytes": 25448,
+      "entries": 13
+    },
+    {
+      "path": "dist/branchsafe_kv-0.1.0.tar.gz",
+      "sha256": "c40eefba2a6c8e9dcd8efa82a8510ee1096477c1a8f5a43c38e9f103e8e2f76b",
+      "bytes": 300337,
+      "entries": 82
+    }
+  ],
+  "package_verified_at": "2026-09-26T17:07:17.997948+00:00"
+}

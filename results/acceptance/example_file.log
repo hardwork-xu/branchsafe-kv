@@ -1,0 +1,1 @@
+{'status': 'passed', 'data_kind': 'synthetic', 'parent_tokens': 17, 'child_tokens': 20, 'exact_kv': True, 'peak_managed_bytes': 10240, 'live_bytes_after_close': 0}

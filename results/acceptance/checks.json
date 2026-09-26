@@ -1,0 +1,289 @@
+{
+  "schema_version": 1,
+  "started_at": "2026-09-26T17:06:00.387210+00:00",
+  "git_revision": "c7931f5cf28a2a5f66ec4d954e2d355521c1fc61",
+  "source_manifest": {
+    "src/branchsafe/__init__.py": "9af1c6fe6e0ea1eca4e81292e76735f363250f608e1b4314caeae313ac986c23",
+    "src/branchsafe/__main__.py": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+    "src/branchsafe/baseline.py": "b3a3f634b8accf7903f30da97b3c44e416b016d6fe5c48b2323d9f438d073287",
+    "src/branchsafe/cli.py": "59480145305247f94d56a65acef40fac6dfefb4f9c7819ab8f904d442cdf8651",
+    "src/branchsafe/core.py": "8733fd07adb07260ffdfd1a309db79fae4f35542624ed239e864cd08df2306dc",
+    "src/branchsafe/provenance.py": "04fb5edfdb00e92c9fabc5ff584887c11f8c5775c45c2b5cedbb3d560d765be8",
+    "benchmark.py": "77e8e7aa841a893a20bb23c256be7e0560b88bff42a17983305eabeeec822683",
+    "pyproject.toml": "0dfea70b3d91409d424f2154c1b7dd5f1d7a1200436a6c3b6dddb9b60ba974d2",
+    "uv.lock": "2b276cc047fa8395f52c49bb0d1a63a2bc99350fa3b2c0225a094602e8d425c9"
+  },
+  "additional_manifest": {
+    ".dockerignore": "88ab6782b5ddaf05b8e3c111885197e6ddfd5628a1be4a74f70219414b49d743",
+    ".github/workflows/ci.yml": "9ff91242eb34136a2722f3ce0041ef4c33da24386022354f3666f3c701225a48",
+    "AGENTS.md": "3d379ed1e0679e459a05c0136c1aaad2eca78a4b1bd8063a4d60556584e794a0",
+    "CITATION.cff": "17df390c3b63d3cffa6b23f9cff74de354dac0a533958221b726ca75bcf7bc48",
+    "CONTRIBUTING.md": "3cd110aebf54f520422ce02519f4a2907a5d1557373f259a523e2c774807420b",
+    "CONTRIBUTING_zh.md": "8f1f41b8151f9c1326857cd080990e732d7ba77b7d879d6d2fdc9f1933b4cc29",
+    "Dockerfile": "6ebdfed4cae2bc8ea7aa0b132bdf5bce786ba76b587d54a38f08e19e2aeaf5e8",
+    "LICENSE": "0d73bf105e4eb7b3796c91937b42e17aee1904e8cb792c532226933bf45fc7f4",
+    "Makefile": "a7d46a092108364b06286ce6f8187bbfef67db9ecba1df0817aad76b1c3d46cf",
+    "NOTICE.md": "f12befc181e1bab0ea076d1fc3926d3dc348f247580ef526bb61925250873405",
+    "NOTICE_zh.md": "666334a7691076630193e75446625d999dd871e356fc555f4f805e7e39a9be65",
+    "README.md": "b456d39c568d0f0fb23b0cbc372b79504c2ac4dc094a6a4491d169baa8f4efdb",
+    "README_zh.md": "9e51605a0e245aa01736094f17f3099b0f8f119833215776e773757bf59e3050",
+    "SECURITY.md": "a2ee655b46239e142022d5452042912f92cb02044ac97c0918be737a95632589",
+    "SECURITY_zh.md": "bfc94d306dc843489bd1f79bc657c27e9a2eaee7dade67fe7b7159df698c2486",
+    "configs/benchmark.json": "ad865b9d7ef97807a081809ac96bea092c4b28bd8f82a5e2229840da1337d420",
+    "docs/en/ARCHITECTURE.md": "b04e0e65e11d3887116dde6b106482fb73cd80c004d9d474e8ddf213b35196dd",
+    "docs/en/DEVELOPMENT.md": "4f4a5fdbdd9b7f5628d7fa5fac39bab561f064a1c500477df7ff0bfd37023e6d",
+    "docs/en/EXPERIMENTS.md": "fa11f118499aea50cbd00c0a35393fe5ffae2b27f46428a4c822c76df31c095b",
+    "docs/en/PLAN.md": "463452ec553ae88bf54be981ee2d52cc03f973b866bf32b725ceabbfd72f8f51",
+    "docs/en/RELEASE.md": "305a0bf60ee6b07b47dbd153af920b102d93ce8fb5adb1a5c8a89beb80123820",
+    "docs/en/RESEARCH.md": "87e6d0be363f99a661b2f3f03439b75319ecf485c02f40eb6c95b2c2fb5bec81",
+    "docs/en/RESUME.md": "794b1de7975aabc5a7e365c79a66d13a26009e3a6c263463251ca7065f4efbca",
+    "docs/en/WALKTHROUGH.md": "370bbe4447ba3bb491a2cc1159b91b1b7c24da0df9c6b5805750fb894ecea1e7",
+    "docs/zh/ARCHITECTURE.md": "24d0febd3a403b984ff0bd5315567b64340975e4e9a8c0721cc358e9bfb65e48",
+    "docs/zh/DEVELOPMENT.md": "9e3be9520e6a7d7082e2ff23c1147310e3f1b867ea812b339534c64c49cfbda3",
+    "docs/zh/EXPERIMENTS.md": "f717fa56194630d87c49dfc211250cf51b4c40e48ac203b56383ac1a330f138a",
+    "docs/zh/PLAN.md": "671e5d4e468b6a3beae8b7d7a328df04f3f0637c112af2052815a112497d68da",
+    "docs/zh/RELEASE.md": "5fe8a76c6a11331e342ba43e0059562c2ea83f7f5344b5c0cada6b10c7f12d38",
+    "docs/zh/RESEARCH.md": "8026b3173a4439582c023f56a67f2be50f00995dbcc2791eb4f540138de9a791",
+    "docs/zh/RESUME.md": "c067c83dab0829279ef3ada70ffd475422cae742c0d33eb7179b46aa9e46d412",
+    "docs/zh/WALKTHROUGH.md": "110363c846ee36248bc0b866a32d53a2e708acfc593be2002e341ea0fa1404dc",
+    "examples/branch.py": "5bb8ab8db2db2d0674e536881a8b0400e854910712c6c7eb283502d4b863dd4d",
+    "scripts/analyze.py": "0f92fe449f882a68a28cf06699a60a5529462ef8f875e8065282227b6b02a97f",
+    "scripts/check_docs.py": "fea827a3c9e95de64b95b71ddf612b6b6f2c8c3abde1bc6c899d9e1e462edf14",
+    "scripts/check_repo.py": "9043cc9ed369214791551c0d321b273d2618916cad6d07fd42a3eebf8e69faba",
+    "scripts/update_readme.py": "80d9c7df966f990cbdc42c35c277964258c8b9ed110e4dce9716d3fcf0a0ba31",
+    "scripts/validate.py": "376c8ade8ef599dc8cd48aaa3ed45698e1905fb9aed11458deeb8b1f0d984697",
+    "scripts/validate_model.py": "888bc8d9d9ea594b45e6e84a065b44211d15a77d5631999cdfd1543477945bfe",
+    "tests/test_concurrency.py": "5d80426d19ddafb564ce8ef491ae8ca0a0d87935a22ac98235cffaa5b1936bae",
+    "tests/test_core.py": "a3d44ffac8ed30a1ae868cda82ebaf61d3dec594b5524fdffca6d82867c09d1b",
+    "tests/test_harness.py": "48066c5d35aae22faa94ae6cc0ef540a5ad4c700c9b0f1fe76a8d24ab6a49022",
+    "tests/test_integration.py": "eee4247780e05723b2316151b70d63062761c33c88e0c1478a31358e485b590b",
+    "tests/test_model_adapter.py": "0da1264d970e7bd09e308f47111bb207da4799f794baad089bec9156b52defbb"
+  },
+  "checks": [
+    {
+      "name": "public_api",
+      "command": [
+        "python",
+        "-c",
+        "from branchsafe import CacheConfig,PagedCache; p=PagedCache(CacheConfig(1,1,4)); s=p.create(); assert s.length==0; p.close()"
+      ],
+      "started_at": "2026-09-26T17:06:00.409378+00:00",
+      "exit_code": 0,
+      "status": "passed",
+      "log": "results/acceptance/public_api.log",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "summary": "passed"
+    },
+    {
+      "name": "default_example",
+      "command": [
+        "python",
+        "-m",
+        "branchsafe",
+        "demo"
+      ],
+      "started_at": "2026-09-26T17:06:00.490569+00:00",
+      "exit_code": 0,
+      "status": "passed",
+      "log": "results/acceptance/default_example.log",
+      "log_sha256": "8cd186244dbd4360731cdceb1b7d0bc1b19ab532c3aa702a684fd9e0fdb544d2",
+      "summary": "{\"child_tokens\": 20, \"data_kind\": \"synthetic\", \"exact_kv\": true, \"live_bytes_after_close\": 0, \"parent_tokens\": 17, \"peak_managed_bytes\": 10240, \"status\": \"passed\"}"
+    },
+    {
+      "name": "example_file",
+      "command": [
+        "python",
+        "examples/branch.py"
+      ],
+      "started_at": "2026-09-26T17:06:00.630663+00:00",
+      "exit_code": 0,
+      "status": "passed",
+      "log": "results/acceptance/example_file.log",
+      "log_sha256": "bc35eac4fcf22746aa593dc6b356afbb304bf25e896f8e344b00fed0bf441542",
+      "summary": "{'status': 'passed', 'data_kind': 'synthetic', 'parent_tokens': 17, 'child_tokens': 20, 'exact_kv': True, 'peak_managed_bytes': 10240, 'live_bytes_after_close': 0}"
+    },
+    {
+      "name": "unit_tests",
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "-q",
+        "-m",
+        "not integration",
+        "--junitxml=work/unit.xml"
+      ],
+      "started_at": "2026-09-26T17:06:00.764965+00:00",
+      "exit_code": 0,
+      "status": "passed",
+      "log": "results/acceptance/unit_tests.log",
+      "log_sha256": "23372209a97b34a96d4a281d83eb9ff9db1abf8beb9333516762e7c08f2942ff",
+      "summary": "148 passed, 3 deselected in 0.58s"
+    },
+    {
+      "name": "integration_tests",
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "-q",
+        "-m",
+        "integration",
+        "--junitxml=work/integration.xml"
+      ],
+      "started_at": "2026-09-26T17:06:01.629707+00:00",
+      "exit_code": 0,
+      "status": "passed",
+      "log": "results/acceptance/integration_tests.log",
+      "log_sha256": "7fbe04d07852aa06c765da8d60f3442e88450339e1bf61e8160198754d2fc3ac",
+      "summary": "3 passed, 148 deselected in 1.42s"
+    },
+    {
+      "name": "lint",
+      "command": [
+        "python",
+        "-m",
+        "ruff",
+        "check",
+        "."
+      ],
+      "started_at": "2026-09-26T17:06:03.229111+00:00",
+      "exit_code": 0,
+      "status": "passed",
+      "log": "results/acceptance/lint.log",
+      "log_sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+      "summary": "All checks passed!"
+    },
+    {
+      "name": "format",
+      "command": [
+        "python",
+        "-m",
+        "ruff",
+        "format",
+        "--check",
+        "."
+      ],
+      "started_at": "2026-09-26T17:06:03.303145+00:00",
+      "exit_code": 0,
+      "status": "passed",
+      "log": "results/acceptance/format.log",
+      "log_sha256": "a0a0f191878d553ae2b88299d5ead34d7a6367937ff1bd9e304fb73059c83f8a",
+      "summary": "19 files already formatted"
+    },
+    {
+      "name": "types",
+      "command": [
+        "python",
+        "-m",
+        "mypy"
+      ],
+      "started_at": "2026-09-26T17:06:03.342716+00:00",
+      "exit_code": 0,
+      "status": "passed",
+      "log": "results/acceptance/types.log",
+      "log_sha256": "ab35ee42183d4d6d3ba483825ab037d18a5a15622d03be01d82220b1564851ff",
+      "summary": "Success: no issues found in 6 source files"
+    },
+    {
+      "name": "analysis",
+      "command": [
+        "python",
+        "scripts/analyze.py"
+      ],
+      "started_at": "2026-09-26T17:06:03.781887+00:00",
+      "exit_code": 0,
+      "status": "passed",
+      "log": "results/acceptance/analysis.log",
+      "log_sha256": "7052fc5f6098f5cd6547016cd7f8e1f4d893a8be7f413d0e2a4447283d6fbe69",
+      "summary": "tables + plots generated / 已生成表格和图表"
+    },
+    {
+      "name": "package_build",
+      "command": [
+        "python",
+        "-m",
+        "build"
+      ],
+      "started_at": "2026-09-26T17:06:04.656979+00:00",
+      "exit_code": 0,
+      "status": "passed",
+      "log": "results/acceptance/package_build.log",
+      "log_sha256": "68410e6a64f1c85fdb06c75f726af5fab14f3371993420e346ed16f5f617e67c",
+      "summary": "Successfully built branchsafe_kv-0.1.0.tar.gz and branchsafe_kv-0.1.0-py3-none-any.whl"
+    },
+    {
+      "name": "documentation_examples",
+      "command": [
+        "python",
+        "scripts/check_docs.py"
+      ],
+      "started_at": "2026-09-26T17:06:16.560410+00:00",
+      "exit_code": 0,
+      "status": "passed",
+      "log": "results/acceptance/documentation_examples.log",
+      "log_sha256": "d83394f7723d230f50316820112e83cd329e7588738be2563c680673f820102b",
+      "summary": "passed / 通过: 9 paired command sets; 2 executed Python examples"
+    },
+    {
+      "name": "documentation_privacy",
+      "command": [
+        "python",
+        "scripts/check_repo.py"
+      ],
+      "started_at": "2026-09-26T17:06:16.772275+00:00",
+      "exit_code": 0,
+      "status": "passed",
+      "log": "results/acceptance/documentation_privacy.log",
+      "log_sha256": "259c8481544d2379c83d3635e40b86ece73603ef19d4edbb188c34918cac1bb3",
+      "summary": "{\"status\": \"passed\", \"files_scanned\": 81, \"relative_links\": 246, \"paired_documents\": 8}"
+    },
+    {
+      "name": "git_diff",
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "started_at": "2026-09-26T17:06:18.696205+00:00",
+      "exit_code": 0,
+      "status": "passed",
+      "log": "results/acceptance/git_diff.log",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "summary": "passed"
+    },
+    {
+      "name": "docker_build",
+      "command": [
+        "docker",
+        "build",
+        "-t",
+        "branchsafe-kv:0.1.0",
+        "."
+      ],
+      "status": "not_run",
+      "exit_code": null,
+      "probe_command": null,
+      "probe_exit_code": null,
+      "summary": "Docker executable unavailable / 未安装Docker"
+    },
+    {
+      "name": "docker_run",
+      "command": [
+        "docker",
+        "run",
+        "--rm",
+        "--network",
+        "none",
+        "branchsafe-kv:0.1.0"
+      ],
+      "status": "not_run",
+      "exit_code": null,
+      "probe_command": null,
+      "probe_exit_code": null,
+      "summary": "Docker executable unavailable / 未安装Docker"
+    }
+  ],
+  "completed_at": "2026-09-26T17:06:18.729696+00:00",
+  "status": "passed_with_not_run"
+}

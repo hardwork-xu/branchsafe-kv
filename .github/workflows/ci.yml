@@ -19,6 +19,7 @@ jobs:
       - run: uv run pytest --junitxml=work/pytest.xml
       - run: uv run branchsafe demo
       - run: uv run python scripts/check_repo.py
+      - run: uv run python scripts/check_docs.py
       - run: uv run python -m build
   container:
     runs-on: ubuntu-24.04

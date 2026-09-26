@@ -1,0 +1,6 @@
+Using Python 3.12.2 environment at: work/release-check
+Resolved 2 packages in 2.38s
+Prepared 1 package in 3ms
+Installed 2 packages in 17ms
+ + branchsafe-kv==0.1.0 (from file://<repo>/dist/branchsafe_kv-0.1.0-py3-none-any.whl)
+ + numpy==2.3.3

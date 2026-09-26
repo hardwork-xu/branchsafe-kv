@@ -32,9 +32,14 @@ def additional_manifest(root):
         ("examples", "*.py"),
         ("configs", "*.json"),
         (".github", "*.yml"),
+        ("docs", "*.md"),
     ):
         files.extend((root / directory).rglob(pattern))
-    files.extend(root / name for name in ("Dockerfile", ".dockerignore", "Makefile"))
+    files.extend(root.glob("*.md"))
+    files.extend(
+        root / name
+        for name in ("Dockerfile", ".dockerignore", "Makefile", "CITATION.cff", "LICENSE")
+    )
     return {
         str(path.relative_to(root)): hashlib.sha256(path.read_bytes()).hexdigest()
         for path in sorted(files)
@@ -106,6 +111,7 @@ def main():
         ("types", [python, "-m", "mypy"]),
         ("analysis", [python, "scripts/analyze.py"]),
         ("package_build", [python, "-m", "build"]),
+        ("documentation_examples", [python, "scripts/check_docs.py"]),
         ("documentation_privacy", [python, "scripts/check_repo.py"]),
         ("git_diff", ["git", "diff", "--check"]),
     ]

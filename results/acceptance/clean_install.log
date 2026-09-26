@@ -1,0 +1,7 @@
+Using CPython 3.12.2 interpreter at: /Library/Frameworks/Python.framework/Versions/3.12/bin/python3
+Creating virtual environment at: .venv-clean
+Installed 2 packages in 27ms
+ + branchsafe-kv==0.1.0 (from file://<repo>)
+ + numpy==2.3.3
+{"child_tokens": 20, "data_kind": "synthetic", "exact_kv": true, "live_bytes_after_close": 0, "parent_tokens": 17, "peak_managed_bytes": 10240, "status": "passed"}
+0.1.0
