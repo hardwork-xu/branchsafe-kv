@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+message: >-
+  Please cite this software and the source revision used in your experiment.
+  请引用本软件及实验实际使用的源码版本。
+type: software
+title: "BranchSafe KV: Bounded Transactional Copy-on-Write KV Storage"
+authors:
+  - name: hardwork-xu
+version: 0.1.0
+date-released: "2026-09-27"
+license: MIT
+abstract: >-
+  A CPU NumPy research implementation of bounded paged key-value storage,
+  prefix sharing, failure-atomic append, and branch transactions for decoding.
+  一个基于 CPU NumPy 的研究实现，提供有界分页 KV 存储、前缀共享、
+  失败原子的追加操作以及面向解码的分支事务。
+keywords:
+  - kv-cache
+  - copy-on-write
+  - transactions
+  - memory-management
+  - reproducible-research

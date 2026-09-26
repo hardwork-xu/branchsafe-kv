@@ -1,0 +1,82 @@
+{
+  "checked_on": "2026-09-27",
+  "week_start": "2026-09-21",
+  "week_end": "2026-09-27",
+  "scope_en": "Primary sources inspected for topic selection, attribution and API context; upstream measurements are not BranchSafe measurements.",
+  "scope_zh": "为选题、归属及接口背景核查的一手来源；上游测量不是 BranchSafe 测量。",
+  "sources": [
+    {
+      "id": "vllm-stale-draft-write",
+      "title": "Stop dummy draft decode steps from writing KV through stale block-table rows",
+      "url": "https://github.com/vllm-project/vllm/pull/56734",
+      "event_date": "2026-09-21",
+      "date_kind": "merged",
+      "version": "d2983f2",
+      "primary": true,
+      "this_week": true,
+      "relation_en": "Dated motivation for cache-lifetime checks; this project does not reproduce its GPU or distributed failure.",
+      "relation_zh": "缓存生命周期校验的本周动机；本项目不复现其中 GPU 或分布式故障。"
+    },
+    {
+      "id": "vllm-metal-announcement",
+      "title": "Announcing vllm-metal: Concurrent Serving on Apple Silicon",
+      "url": "https://vllm.ai/blog/2026-09-22-vllm-metal-v0-28-0",
+      "event_date": "2026-09-22",
+      "date_kind": "published",
+      "version": "Article URL dated 2026-09-22",
+      "primary": true,
+      "this_week": true,
+      "relation_en": "Apple Silicon serving context; memory budgets and paged storage remain active engineering topics.",
+      "relation_zh": "Apple Silicon 推理背景；内存预算与页式存储仍在活跃演进。"
+    },
+    {
+      "id": "pagedattention",
+      "title": "Efficient Memory Management for Large Language Model Serving with PagedAttention",
+      "url": "https://arxiv.org/abs/2309.06180v1",
+      "full_text_url": "https://arxiv.org/pdf/2309.06180",
+      "event_date": "2023-09-12",
+      "date_kind": "submitted",
+      "version": "arXiv:2309.06180v1; SOSP 2023",
+      "primary": true,
+      "this_week": false,
+      "relation_en": "Prior art for paging, reference counts, COW and fork/append/free. Independent CPU reimplementation, not reproduction of GPU results.",
+      "relation_zh": "分页、引用计数、COW、fork/append/free 的已有工作；本项目为独立 CPU 实现，不复现 GPU 结果。"
+    },
+    {
+      "id": "transformers-cache-guide",
+      "title": "Cache strategies",
+      "url": "https://huggingface.co/docs/transformers/kv_cache",
+      "event_date": null,
+      "date_kind": "undated_living_document",
+      "version": "Current documentation inspected 2026-09-27; local model adapter pins its own runtime separately",
+      "primary": true,
+      "this_week": false,
+      "relation_en": "Practical preallocated cache and copied-prefix usage; the NumPy baseline is not a Transformers benchmark. Current crop semantics must not be assumed for older runtime versions.",
+      "relation_zh": "实用预分配缓存与复制前缀用法；NumPy 基线不是 Transformers 性能测量。当前 crop 语义不可直接套用于旧运行时。"
+    },
+    {
+      "id": "generational-arena",
+      "title": "generational_arena",
+      "url": "https://docs.rs/generational-arena/0.2.9/generational_arena/",
+      "event_date": null,
+      "date_kind": "versioned_documentation",
+      "version": "0.2.9",
+      "primary": true,
+      "this_week": false,
+      "relation_en": "Established stale-reference technique; conceptual relation only, with no Rust code or dependency copied.",
+      "relation_zh": "已有陈旧引用防护技术；仅概念相关，没有复制 Rust 代码或引入该依赖。"
+    },
+    {
+      "id": "xgrammar-release",
+      "title": "XGrammar v0.2.8",
+      "url": "https://github.com/mlc-ai/xgrammar/releases/tag/v0.2.8",
+      "event_date": "2026-09-24",
+      "date_kind": "released",
+      "version": "v0.2.8; 9778737",
+      "primary": true,
+      "this_week": true,
+      "relation_en": "Evidence for the token-masking candidate considered during selection; not used as a dependency or benchmark competitor.",
+      "relation_zh": "选题时 token masking 候选方向的证据；不是本项目依赖或性能竞争基线。"
+    }
+  ]
+}
